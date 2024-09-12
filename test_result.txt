@@ -1,0 +1,91 @@
+Reading "Scanner.jflex"
+Constructing NFA : 76 states in NFA
+Converting NFA to DFA : 
+.....................
+23 states before minimization, 17 states in minimized DFA
+Writing code to "Lexer.java"
+cd parser && java -jar /home/abced/cup/java-cup-11b.jar -interface -parser Parser Parser.cup
+------- CUP v0.11b 20160615 (GIT 4ac7450) Parser Generation Summary -------
+  0 errors and 0 warnings
+  7 terminals, 3 non-terminals, and 7 productions declared, 
+  producing 13 unique parse states.
+  0 terminals declared but not used.
+  0 non-terminals declared but not used.
+  0 productions never reduced.
+  0 conflicts detected (0 expected).
+  Code written to "Parser.java", and "sym.java".
+---------------------------------------------------- (CUP v0.11b 20160615 (GIT 4ac7450))
+javac -cp /home/abced/cup/java-cup-11b.jar:. */*.java
+Testing  isrefint.q 42, worth 0 points: FAILED
+Testing  reallysimple.calc 42, worth 1 points: FAILED
+Testing  simple.calc 42, worth 1 points: FAILED
+Testing  medium.calc 42, worth 1 points: FAILED
+Testing  complex.calc 42, worth 1 points: FAILED
+Testing  badparens2.calc 42, worth 1 points: PASSED
+Testing  badparens.calc 42, worth 1 points: PASSED
+Testing  badparse2.calc 42, worth 1 points: PASSED
+Testing  badparse.calc 42, worth 1 points: PASSED
+Testing  badreturn.calc 42, worth 1 points: PASSED
+Testing  badstmt.calc 42, worth 1 points: PASSED
+Testing  t1.calc 42, worth 1 points: FAILED
+Testing  t2.calc 42, worth 1 points: FAILED
+Testing  t3.calc 42, worth 1 points: FAILED
+Testing  t4.calc 42, worth 1 points: FAILED
+Testing  t5.calc 42, worth 1 points: PASSED
+Testing  t6.calc 42, worth 1 points: FAILED
+Testing  t7.calc 42, worth 1 points: PASSED
+Testing  t8.calc 42, worth 1 points: PASSED
+Testing  t9.calc 42, worth 1 points: FAILED
+Testing  t10.calc 42, worth 1 points: FAILED
+Testing  t11.calc 42, worth 1 points: PASSED
+Testing  t12.calc 42, worth 1 points: FAILED
+Testing  reallysimple2.calc 42, worth 2 points: FAILED
+Testing  simple.calc 42, worth 2 points: FAILED
+Testing  medium.calc 42, worth 2 points: FAILED
+Testing  complex2.calc 42, worth 2 points: FAILED
+Testing  t1.calc 42, worth 2 points: FAILED
+Testing  t6.calc 42, worth 2 points: FAILED
+Testing  t8.calc 42, worth 2 points: PASSED
+Testing  t12b.calc 42, worth 2 points: FAILED
+Testing  reallysimple.calc 42, worth 1 points: FAILED
+Testing  simple.calc 42, worth 1 points: FAILED
+Testing  medium.calc 42, worth 1 points: FAILED
+Testing  complex.calc 42, worth 1 points: FAILED
+Testing  t1.calc 42, worth 1 points: FAILED
+Testing  t2.calc 42, worth 1 points: FAILED
+Testing  t3.calc 42, worth 1 points: FAILED
+Testing  t4.calc 42, worth 1 points: FAILED
+Testing  t5.calc 42, worth 1 points: PASSED
+Testing  t6.calc 42, worth 1 points: FAILED
+Testing  t8.calc 42, worth 1 points: PASSED
+Testing  t9.calc 42, worth 1 points: FAILED
+Testing  t10.calc 42, worth 1 points: FAILED
+Testing  t12.calc 42, worth 1 points: FAILED
+Testing  simple2.calc 42, worth 1 points: FAILED
+Testing  simple3.calc 42, worth 1 points: FAILED
+Testing  medium2.calc 42, worth 1 points: FAILED
+Testing  medium3.calc 42, worth 1 points: FAILED
+Testing  complex2.calc 42, worth 1 points: FAILED
+Testing  complex3.calc 42, worth 1 points: FAILED
+Testing  reallysimple2.calc 42, worth 1 points: FAILED
+Testing  reallysimple3.calc 42, worth 1 points: FAILED
+Testing  simple.calc 42, worth 1 points: FAILED
+Testing  simple3.calc 42, worth 1 points: FAILED
+Testing  simple4.calc 42, worth 1 points: FAILED
+Testing  simple5.calc 42, worth 1 points: FAILED
+Testing  simple6.calc 42, worth 1 points: FAILED
+Testing  kindasimple.calc 42, worth 1 points: FAILED
+Testing  kindasimple2.calc 42, worth 1 points: FAILED
+Testing  medium.calc 42, worth 1 points: FAILED
+Testing  medium2.calc 42, worth 1 points: FAILED
+Testing  medium4.calc 42, worth 1 points: FAILED
+Testing  badreturn.calc 42, worth 1 points: PASSED
+Testing  complex2.calc 42, worth 1 points: FAILED
+Testing  complex3.calc 42, worth 1 points: FAILED
+Testing  complex4.calc 42, worth 1 points: FAILED
+Testing  t3.calc 42, worth 1 points: FAILED
+Testing  t5.calc 42, worth 1 points: PASSED
+Testing  t6.calc 42, worth 1 points: FAILED
+Testing  t10.calc 42, worth 1 points: FAILED
+Testing  isrefint.q 42, worth 0 points: FAILED
+Total score: 16 out of 78
