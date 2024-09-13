@@ -1,14 +1,14 @@
 Reading "Scanner.jflex"
-Constructing NFA : 85 states in NFA
+Constructing NFA : 87 states in NFA
 Converting NFA to DFA : 
-............................
-30 states before minimization, 24 states in minimized DFA
+.............................
+31 states before minimization, 25 states in minimized DFA
 Writing code to "Lexer.java"
 cd parser && java -jar /home/abced/cup/java-cup-11b.jar -interface -parser Parser Parser.cup
 ------- CUP v0.11b 20160615 (GIT 4ac7450) Parser Generation Summary -------
   0 errors and 0 warnings
-  9 terminals, 4 non-terminals, and 10 productions declared, 
-  producing 19 unique parse states.
+  10 terminals, 4 non-terminals, and 10 productions declared, 
+  producing 20 unique parse states.
   0 terminals declared but not used.
   0 non-terminals declared but not used.
   0 productions never reduced.
@@ -19,18 +19,16 @@ javac -cp /home/abced/cup/java-cup-11b.jar:. */*.java
 Testing  isrefint.q 42, worth 0 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
 SUB_OUT is Illegal character <i> Quandary process returned 1
-Testing  reallysimple.calc 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 1000 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+Testing  reallysimple.calc 42, worth 1 points: PASSED
 Testing  simple.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 166 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  medium.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -329 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  complex.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -39713 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  badparens2.calc 42, worth 1 points: PASSED
 Testing  badparens.calc 42, worth 1 points: PASSED
 Testing  badparse2.calc 42, worth 1 points: PASSED
@@ -39,169 +37,153 @@ Testing  badreturn.calc 42, worth 1 points: PASSED
 Testing  badstmt.calc 42, worth 1 points: PASSED
 Testing  t1.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -2076 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
-Testing  t2.calc 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 1000 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
+Testing  t2.calc 42, worth 1 points: PASSED
 Testing  t3.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -329 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t4.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 7 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t5.calc 42, worth 1 points: PASSED
 Testing  t6.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -39713 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t7.calc 42, worth 1 points: PASSED
 Testing  t8.calc 42, worth 1 points: PASSED
 Testing  t9.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 986645 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t10.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 72 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
-Testing  t11.calc 42, worth 1 points: FAILED
-REF_OUT is Quandary process returned 1
-SUB_OUT is Quandary process returned 0
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
+Testing  t11.calc 42, worth 1 points: PASSED
 Testing  t12.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5389968 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
-Testing  reallysimple2.calc 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 1234 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
+Testing  reallysimple2.calc 42, worth 2 points: PASSED
 Testing  simple.calc 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned 166 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  medium.calc 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned -329 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  complex2.calc 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned 59 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t1.calc 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned -2076 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t6.calc 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned -39713 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t8.calc 42, worth 2 points: PASSED
 Testing  t12b.calc 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned -5381056 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
-Testing  reallysimple.calc 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 1000 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
+Testing  reallysimple.calc 42, worth 1 points: PASSED
 Testing  simple.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 166 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  medium.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -329 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  complex.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -39713 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t1.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -2076 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
-Testing  t2.calc 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 1000 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
+Testing  t2.calc 42, worth 1 points: PASSED
 Testing  t3.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -329 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t4.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 7 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t5.calc 42, worth 1 points: PASSED
 Testing  t6.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -39713 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t8.calc 42, worth 1 points: PASSED
 Testing  t9.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 986645 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t10.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 72 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t12.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5389968 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  simple2.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 166 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  simple3.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 123 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  medium2.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 675109266 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  medium3.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 312545055 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  complex2.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 59 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  complex3.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 170 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
-Testing  reallysimple2.calc 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 1234 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
-Testing  reallysimple3.calc 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 3341 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
+Testing  reallysimple2.calc 42, worth 1 points: PASSED
+Testing  reallysimple3.calc 42, worth 1 points: PASSED
 Testing  simple.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 166 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  simple3.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 123 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
-Testing  simple4.calc 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned -118 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
+Testing  simple4.calc 42, worth 1 points: PASSED
 Testing  simple5.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -2 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  simple6.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 210 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  kindasimple.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -128 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  kindasimple2.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 615 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  medium.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -329 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  medium2.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 675109266 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  medium4.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -1662763586 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  badreturn.calc 42, worth 1 points: PASSED
 Testing  complex2.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 59 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  complex3.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 170 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  complex4.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -1838 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t3.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -329 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t5.calc 42, worth 1 points: PASSED
 Testing  t6.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned -39713 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  t10.calc 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 72 Quandary process returned 0
-SUB_OUT is Illegal character <;> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:80) Quandary process returned 1
 Testing  isrefint.q 42, worth 0 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
 SUB_OUT is Illegal character <i> Quandary process returned 1
-Total score: 15 out of 78
+Total score: 25 out of 78
