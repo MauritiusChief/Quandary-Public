@@ -64,7 +64,7 @@ program ::= funcDefList:f
 funcDefList ::= funcDef:f funcDefList:fl
                {: RESULT = new FuncDefList(f, loc(fleft, fright)); :}
             | /* epsilon */
-               {: RESULT = null :}
+               {: RESULT = null; :}
             ;
 
 funcDef ::= varDecl:v LPAREN formalDeclList:fl RPAREN LBRACE stmtList:sl RBRACE
@@ -72,10 +72,16 @@ funcDef ::= varDecl:v LPAREN formalDeclList:fl RPAREN LBRACE stmtList:sl RBRACE
             ;
 
 formalDeclList ::= neFormalDeclList:nfl
-               | /* epsilon */;
+                  {: RESULT = new FormalDeclList(nfl, loc(nflleft, nflright)); :}
+               | /* epsilon */
+                  {: RESULT = null; :}
+               ;
 
-neFormalDeclList ::= varDecl COMMA neFormalDeclList
-                  | varDecl;
+neFormalDeclList ::= varDecl:v1 COMMA neFormalDeclList:nfl
+                     {: RESULT = new NeFormalDeclList(v1,nfl,loc(v1left,v1right)); :}
+                  |  varDecl:v1
+                     {: RESULT = new NeFormalDeclList(v1,null,loc(v1left,v1right)); :}
+                  ;
 
 varDecl ::= INT IDENT:i
             {: RESULT = new VarDecl(i, loc(ileft,iright)); :}
@@ -84,7 +90,7 @@ varDecl ::= INT IDENT:i
 stmtList ::= stmt:s stmtList:sl
                {: RESULT = new StmtList(s, sl, loc(sleft, sright)); :}
             | /* epsilon */
-               {: RESULT = null :}
+               {: RESULT = null; :}
             ;
 
 stmt ::= varDecl:v EQ expr:e SEMICOL
@@ -96,8 +102,9 @@ stmt ::= varDecl:v EQ expr:e SEMICOL
       | PRINT expr:e SEMICOL
          {: RESULT = new PrintStmt(e, loc(eleft,eright)); :}
       | RETURN expr:e SEMICOL
-         {: RESULT = new PrintStmt(e,loc(eleft,eright)); :}
-      | LBRACE stmtList RBRACE
+         {: RESULT = new ReturnStmt(e, loc(eleft, eright)); :}
+      | LBRACE stmtList:sl RBRACE
+         {: RESULT = new StmtList(sl, loc(slleft, slright)); :}
       ;
 
 cond ::= expr:e1 LE expr:e2
@@ -113,11 +120,13 @@ cond ::= expr:e1 LE expr:e2
       | expr:e1 GT expr:e2
          {: RESULT = new CondExpr(e1, CondExpr.GT, e2, loc(e1left, e1right)); :}
       | cond:c1 AND cond:c2
-         {: RESULT = new CondExpr(c1, CondExpr.AND, c2, loc(e1left, e1right)); :}
+         {: RESULT = new CondExpr(c1, CondExpr.AND, c2, loc(c1left, c1right)); :}
       | cond:c1 OR cond:c2
-         {: RESULT = new CondExpr(c1, CondExpr.OR, c2, loc(e1left, e1right)); :}
+         {: RESULT = new CondExpr(c1, CondExpr.OR, c2, loc(c1left, c1right)); :}
       | NOT cond:c
+         {: RESULT = new CondExpr(c1, CondExpr.NOT, null, loc(c1left, c1right)); :}
       | LPAREN cond:c RPAREN
+         {: RESULT = c; :}
       ;
 
 expr ::= INTCONST:c
