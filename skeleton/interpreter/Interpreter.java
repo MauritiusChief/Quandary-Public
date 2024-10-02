@@ -102,25 +102,25 @@ public class Interpreter {
     }
 
     Object executeRoot(Program astRoot, long arg) {
-        return evaluateFuncDefList(astRoot.getFuncDefList());
+        return evaluateFuncDefList(astRoot.getFuncDefList(),arg);
     }
 
-    Object evaluateFuncDefList(FuncDefList funcDefList) {
+    Object evaluateFuncDefList(FuncDefList funcDefList, long arg) {
         FuncDef mainFunc = funcDefList.getFuncDef();
         String id = funcDefList.getFuncDef().getVarDecl().getIdent().getIdentStr();
         // System.out.println(id);
         if (id.equals("main")) {
             mainFunc = funcDefList.getFuncDef();
             Map<String, Long> variablesMap = new HashMap<>();
-            return evaluateFuncDef(mainFunc, variablesMap);
+            return evaluateFuncDef(mainFunc, arg, variablesMap);
         } else {
             throw new RuntimeException("no main method");
         }
     }
 
-    Long evaluateFuncDef(FuncDef funcDef, Map<String, Long> variablesMap) {
+    Long evaluateFuncDef(FuncDef funcDef, long arg, Map<String, Long> variablesMap) {
         if (funcDef.getFormalDeclList() != null) {
-            evaluateFormalDeclList(funcDef.getFormalDeclList(), variablesMap);
+            evaluateFormalDeclList(funcDef.getFormalDeclList(), arg, variablesMap);
         }
         return evaluateStmtList(funcDef.getStmtList(), variablesMap);
     }
@@ -131,27 +131,95 @@ public class Interpreter {
         return stmt;
     }
 
-    void evaluateFormalDeclList(FormalDeclList formalDeclList, Map<String, Long> variablesMap){
-        evaluateNeFormalDeclList(formalDeclList.getNeFormalDeclListNode(), variablesMap);
+    void evaluateFormalDeclList(FormalDeclList formalDeclList, long arg, Map<String, Long> variablesMap){
+        evaluateNeFormalDeclList(formalDeclList.getNeFormalDeclListNode(), arg, variablesMap);
     }
 
-    void evaluateNeFormalDeclList(NeFormalDeclList neFormalDeclList, Map<String, Long> variablesMap){
-        int idx = 0;
-        variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), arg.get(idx));
-        while (neFormalDeclList.getNeFormalDeclListNode() != null) {
-            neFormalDeclList = neFormalDeclList.getNeFormalDeclListNode();
-            idx++;
-            variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), arg.get(idx));
+    void evaluateNeFormalDeclList(NeFormalDeclList neFormalDeclList, long arg, Map<String, Long> variablesMap){
+        variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), arg, variablesMap);
+    }
+
+    Long evaluateExprList(ExprList exprList, long arg, Map<String, Long> variablesMap) {
+        Long value = evaluateNeExprList(exprList.getNeExprList(), variablesMap);
+        if (exprList.getNeExprList() != null){
+            return evaluateNeExprList(exprList.getNeExprList(), arg, variablesMap);   
+        }
+        return value;
+    }
+
+    Long evaluateNeExprList(NeExprList neExprList, Long arg, Map<String, Long> variablesMap){
+        Long firstExprValue = evaluate(neExprList.getExpr(),variablesMap);
+        if (neExprList.getneExprList() != null) {
+            return evaluate(neExprList.getneExprList(), arg, variablesMap);
+        }
+        return firstExprValue; 
+    }
+
+    boolean evaluateCond(Cond cond, Map<String, Long> variablesMap){
+            switch(cond.getOperator()){
+                case Cond.LE: return evaluateExpr(cond.getLeftExpr(),variablesMap) <= evaluateExpr(cond.getRightExpr(),variablesMap);
+                case Cond.GE: return evaluateExpr(cond.getLeftExpr(),variablesMap) >= evaluateExpr(cond.getRightExpr(),variablesMap);
+                case Cond.EQ: return evaluateExpr(cond.getLeftExpr(),variablesMap) == evaluateExpr(cond.getRightExpr(),variablesMap);
+                case Cond.NE: return evaluateExpr(cond.getLeftExpr(),variablesMap) != evaluateExpr(cond.getRightExpr(),variablesMap);
+                case Cond.LT: return evaluateExpr(cond.getLeftExpr(),variablesMap) < evaluateExpr(cond.getRightExpr(),variablesMap);
+                case Cond.GT: return evaluateExpr(cond.getLeftExpr(),variablesMap) > evaluateExpr(cond.getRightExpr(),variablesMap);
+                case Cond.AND: return evaluateCond((Cond)cond.getLeftExpr(),variablesMap) && evaluateCond((Cond)cond.getRightExpr(),variablesMap);
+                case Cond.OR: return evaluateCond((Cond)cond.getLeftExpr(),variablesMap) || evaluateCond((Cond)cond.getRightExpr(),variablesMap);
+                case Cond.NOT: return !(evaluateCond((Cond)cond.getLeftExpr(),variablesMap));
+
+                default: throw new RuntimeException("Unhandled operator");
+            }
+    }
+
+    Long evaluateStmt(Stmt stmt, Map<String, Long> variablesMap){
+        if (stmt instanceof DeclarationStmt){
+            DeclStmt declStmt = (DeclarationStmt)stmt;
+            String varName = declStmt.getVarDecl().getIdent().getIdentStr();
+            Long value = evaluateExpr(declStmt.getExpr(),variablesMap);
+            variablesMap.put(varName, value);
+            // System.out.println(value);
+            return value;
+        } else if (stmt instanceof IfStmt) {
+            IfStmt ifStatement = (IfStmt)stmt;
+            boolean condition = evaluateCond(ifStatement.getCond(),variablesMap);
+            Long value = null
+            if (condition){
+                value = evaluate(ifStatement.getStmt(), variablesMap);
+            }
+            // System.out.println(value);
+            return value;
+        } else if (stmt instanceof IfElseStmt){
+            IfElseStmt ifElseStmt = (IfElseStmt)stmt;
+            boolean condition = evaluateCond(ifElseStmt.getCond(),variablesMap);
+            Long value = null;
+            if (condition){
+                value = evaluate(ifElseStmt.getStmt1(), variablesMap);
+            } else {
+                value = evaluate(ifElseStmt.getStmt2(), variablesMap);
+            }
+            // System.out.println(value);
+            return value;
+        } else if (stmt instanceof PrintStmt) {
+            PrintStmt printStmt = (PrintStmt)stmt;
+            Long value = evaluate(printStmt.getExpression(), variablesMap);
+            System.out.println(value);
+            // System.out.println(value);
+            return value;
+        } else if (stmt instanceof ReturnStmt) {
+            ReturnStmt returnStmt = (ReturnStmt)stmt;
+            Long value = evaluate(returnStmt.getExpression(),variablesMap);
+            // System.out.println(value);
+            return value;
+        } else if (stmt instanceof StmtBlock) {
+            StmtBlock stmtBlock = (StmtBlock)stmt;
+            Long value = evaluate(stmtBlock.getStmtList(), variablesMap);
+            // System.out.println(value);
+            return value;
+        } else {
+            throw new RuntimeException("Unhandled Stmt type");
         }
     }
 
-    Long evaluateExprList(ExprList exprList, Map<String, Long> variablesMap){
-        Long value = evaluateExprList(exprList.getNeExprList(), variablesMap);
-       if (exprList.getNeExprList() != null){
-           return evaluateExprList(exprList.getNeExprList(),variablesMap, args);   
-       }
-       return value;
-    }
 
     Object evaluate(Expr expr) {
         if (expr instanceof ConstExpr) {

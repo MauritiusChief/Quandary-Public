@@ -22,6 +22,12 @@ public class Cond extends Expr {
         this.operator = operator;
         this.expr2 = expr2;
     }
+    public Cond(Expr expr1, int operator, Location loc) {
+        super(loc);
+        this.expr1 = expr1;
+        this.operator = operator;
+        this.expr2 = null;
+    }
 
     public Expr getLeftExpr() {
         return expr1;
