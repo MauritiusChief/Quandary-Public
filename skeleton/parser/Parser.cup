@@ -27,22 +27,90 @@ parser code {:
 
 :};
 
-terminal PLUS, MINUS, TIMES, LPAREN, RPAREN, RETURN, SEMICOL;
+terminal PLUS, MINUS, TIMES, LPAREN, RPAREN, RETURN, SEMICOL, IF, ELSE, PRINT, LBRACE, RBRACE, COMMA, INT;
+terminal LE, GE, EQ, NE, LT, GT, AND, OR, NOT;
 terminal Long    INTCONST;
+terminal String  IDENT;
 
 non terminal Program         program;
 non terminal Expr            expr;
 non terminal BinaryExpr      binaryExpr;
 non terminal UnaryExpr       unaryExpr;
+non terminal ExprList        exprList;
+non terminal NeExprList      neExprList;
+non terminal FuncDefList     funcDefList;
+non terminal FuncDef         funcDef;
+non terminal VarDecl         varDecl;
+non terminal Type            type;
+non terminal FormalDeclList  formalDeclList;
+non terminal NeFormalDeclList     neFormalDeclList;
+non terminal Stmt            stmt;
+non terminal StmtList        stmtList;
+non terminal Cond            cond;
 
+precedence left AND, OR;
+precedence right NOT;
+precedence left EQ, NE, LE, GE, LT, GT;
 precedence left PLUS, MINUS;
 precedence left TIMES;
+precedence left ELSE;
 
 start with program;
 
-program ::= RETURN expr:e SEMICOL
-            {: RESULT = new Program(e, loc(eleft, eright)); :}
-         ;
+program ::= funcDefList:f
+            {: RESULT = new Program(f, loc(fleft, fright)); :}
+            ;
+
+funcDefList ::= funcDef:f funcDefList:fl
+               {: RESULT = new FuncDefList(f, loc(fleft, fright)); :}
+            | /* epsilon */
+               {: RESULT = null :}
+            ;
+
+funcDef ::= varDecl:v LPAREN formalDeclList:fl RPAREN LBRACE stmtList:sl RBRACE
+            {: RESULT = new FuncDef(v, fl, sl, loc(vleft, slright)); :}
+            ;
+
+formalDeclList ::= neFormalDeclList:nfl
+               | /* epsilon */;
+
+neFormalDeclList ::= varDecl COMMA neFormalDeclList
+                  | varDecl;
+
+varDecl ::= INT IDENT:i
+            {: RESULT = new VarDecl(i, loc(ileft,iright)); :}
+            ;
+
+stmtList ::= stmt stmtList
+         | /* epsilon */;
+
+stmt ::= varDecl EQ expr SEMICOL
+      | IF LPAREN cond RPAREN stmt
+      | IF LPAREN cond RPAREN stmt ELSE stmt
+      | PRINT expr SEMICOL
+      | RETURN expr SEMICOL
+      | LBRACE stmtList RBRACE
+      ;
+
+cond ::= expr:e1 LE expr:e2
+         {: RESULT = new CondExpr(e1, CondExpr.LE, e2, loc(e1left, e1right)); :}
+      | expr:e1 GE expr:e2
+         {: RESULT = new CondExpr(e1, CondExpr.GE, e2, loc(e1left, e1right)); :}
+      | expr:e1 EQ expr:e2
+         {: RESULT = new CondExpr(e1, CondExpr.EQ, e2, loc(e1left, e1right)); :}
+      | expr:e1 NE expr:e2
+         {: RESULT = new CondExpr(e1, CondExpr.NE, e2, loc(e1left, e1right)); :}
+      | expr:e1 LT expr:e2
+         {: RESULT = new CondExpr(e1, CondExpr.LT, e2, loc(e1left, e1right)); :}
+      | expr:e1 GT expr:e2
+         {: RESULT = new CondExpr(e1, CondExpr.GT, e2, loc(e1left, e1right)); :}
+      | cond:c1 AND cond:c2
+         {: RESULT = new CondExpr(c1, CondExpr.AND, c2, loc(e1left, e1right)); :}
+      | cond:c1 OR cond:c2
+         {: RESULT = new CondExpr(c1, CondExpr.OR, c2, loc(e1left, e1right)); :}
+      | NOT cond:c
+      | LPAREN cond:c RPAREN
+      ;
 
 expr ::= INTCONST:c
          {: RESULT = new ConstExpr(c, loc(cleft, cright)); :}

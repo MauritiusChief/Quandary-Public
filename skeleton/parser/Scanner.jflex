@@ -70,6 +70,24 @@ white_space = {new_line} | [ \t\f]
 ")"               { return symbol(")",  RPAREN); }
 "return"          { return symbol("return", RETURN); }
 ";"               { return symbol(";",  SEMICOL); }
+"{"               { return symbol("{",  LBRACE); }
+"}"               { return symbol("}",  RBRACE); }
+
+"if"              { return symbol("if",  IF); }
+"else"            { return symbol("else",  ELSE); }
+"print"           { return symbol("print",  PRINT); }
+"int"             { return symbol("int",  INT); }
+
+"<="              { return symbol("<=",  LE); }
+">="              { return symbol(">=",  GE); }
+"=="              { return symbol("==",  EQ); }
+"!="              { return symbol("!=",  NE); }
+"<"               { return symbol("<",  LT); }
+">"               { return symbol(">",  GT); }
+
+"&&"              { return symbol("&&", AND); }
+"||"              { return symbol("||", OR); }
+"!"               { return symbol("!", NOT); }
 
 /* You shouldn't need to modify anything below this */
 
