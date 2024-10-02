@@ -30,7 +30,7 @@ parser code {:
 terminal PLUS, MINUS, TIMES, LPAREN, RPAREN, RETURN, SEMICOL, IF, ELSE, PRINT, LBRACE, RBRACE, COMMA, INT;
 terminal LE, GE, EQ, NE, LT, GT, AND, OR, NOT;
 terminal Long    INTCONST;
-terminal String  IDENT;
+terminal IdentExpr  IDENT;
 
 non terminal Program         program;
 non terminal Expr            expr;
@@ -62,7 +62,7 @@ program ::= funcDefList:f
             ;
 
 funcDefList ::= funcDef:f funcDefList:fl
-               {: RESULT = new FuncDefList(f, loc(fleft, fright)); :}
+               {: RESULT = new FuncDefList(f, fl, loc(fleft, fright)); :}
             | /* epsilon */
                {: RESULT = null; :}
             ;

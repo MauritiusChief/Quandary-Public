@@ -102,7 +102,26 @@ public class Interpreter {
     }
 
     Object executeRoot(Program astRoot, long arg) {
-        return evaluate(astRoot.getExpr());
+        return evaluateFuncDefList(astRoot.getFuncDefList());
+    }
+
+    Object evaluateFuncDefList(FuncDefList funcDefList) {
+        FuncDef mainFunc = funcDefList.getFuncDef();
+        String id = funcDefList.getFuncDef().getVarDecl().getIdent().getIdentStr();
+        if (id.equals("main")) {
+            mainFunc = funcDefList.getFuncDef();
+            Map<String, Long> variablesMap = new HashMap<>();
+            return evaluateFuncDef(mainFunc, variablesMap);
+        } else {
+            throw new RuntimeException("no main method");
+        }
+    }
+
+    Long evaluateFuncDef(FuncDef funcDef, Map<String, Long> variablesMap) {
+        if (funcDef.getFormalDeclList() != null) {
+            evaluateFormalDeclList(funcDef.getFormalDeclList(), variablesMap);
+        }
+        return evaluateStmtList(funcDef.getStmtList(), variablesMap);
     }
 
     Object evaluate(Expr expr) {

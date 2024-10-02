@@ -13,10 +13,6 @@ public class StmtBlock extends Stmt {
         return stmtList;
     }
 
-    public Stmt getStmt() {
-        return stmt;
-    }
-
     @Override
     public String toString() {
         return "{" + stmtList.toString() + "}" ;
