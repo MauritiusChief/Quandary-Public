@@ -81,14 +81,22 @@ varDecl ::= INT IDENT:i
             {: RESULT = new VarDecl(i, loc(ileft,iright)); :}
             ;
 
-stmtList ::= stmt stmtList
-         | /* epsilon */;
+stmtList ::= stmt:s stmtList:sl
+               {: RESULT = new StmtList(s, sl, loc(sleft, sright)); :}
+            | /* epsilon */
+               {: RESULT = null :}
+            ;
 
-stmt ::= varDecl EQ expr SEMICOL
-      | IF LPAREN cond RPAREN stmt
-      | IF LPAREN cond RPAREN stmt ELSE stmt
-      | PRINT expr SEMICOL
-      | RETURN expr SEMICOL
+stmt ::= varDecl:v EQ expr:e SEMICOL
+         {: RESULT = new DeclStmt(v, e, loc(vleft, vright)); :}
+      | IF LPAREN cond:c RPAREN stmt:s
+         {: RESULT = new IfStmt(c, s, loc(cleft, cright)); :}
+      | IF LPAREN cond:c RPAREN stmt:s1 ELSE stmt:s2
+         {: RESULT = new IfStmt(c, s1, s2, loc(cleft, cright)); :}
+      | PRINT expr:e SEMICOL
+         {: RESULT = new PrintStmt(e, loc(eleft,eright)); :}
+      | RETURN expr:e SEMICOL
+         {: RESULT = new PrintStmt(e,loc(eleft,eright)); :}
       | LBRACE stmtList RBRACE
       ;
 
