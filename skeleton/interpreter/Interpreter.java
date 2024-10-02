@@ -108,6 +108,7 @@ public class Interpreter {
     Object evaluateFuncDefList(FuncDefList funcDefList) {
         FuncDef mainFunc = funcDefList.getFuncDef();
         String id = funcDefList.getFuncDef().getVarDecl().getIdent().getIdentStr();
+        // System.out.println(id);
         if (id.equals("main")) {
             mainFunc = funcDefList.getFuncDef();
             Map<String, Long> variablesMap = new HashMap<>();
@@ -122,6 +123,34 @@ public class Interpreter {
             evaluateFormalDeclList(funcDef.getFormalDeclList(), variablesMap);
         }
         return evaluateStmtList(funcDef.getStmtList(), variablesMap);
+    }
+
+    Long evaluateStmtList(StmtList stmtList, Map<String, Long> variablesMap){
+        // System.out.println(stmtList.getStmt().toString());
+        Long stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
+        return stmt;
+    }
+
+    void evaluateFormalDeclList(FormalDeclList formalDeclList, Map<String, Long> variablesMap){
+        evaluateNeFormalDeclList(formalDeclList.getNeFormalDeclListNode(), variablesMap);
+    }
+
+    void evaluateNeFormalDeclList(NeFormalDeclList neFormalDeclList, Map<String, Long> variablesMap){
+        int idx = 0;
+        variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), arg.get(idx));
+        while (neFormalDeclList.getNeFormalDeclListNode() != null) {
+            neFormalDeclList = neFormalDeclList.getNeFormalDeclListNode();
+            idx++;
+            variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), arg.get(idx));
+        }
+    }
+
+    Long evaluateExprList(ExprList exprList, Map<String, Long> variablesMap){
+        Long value = evaluateExprList(exprList.getNeExprList(), variablesMap);
+       if (exprList.getNeExprList() != null){
+           return evaluateExprList(exprList.getNeExprList(),variablesMap, args);   
+       }
+       return value;
     }
 
     Object evaluate(Expr expr) {

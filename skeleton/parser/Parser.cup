@@ -129,6 +129,17 @@ cond ::= expr:e1 LE expr:e2
          {: RESULT = c; :}
       ;
 
+exprList ::= neExprList:nel
+               {: RESULT = new ExprList(nel, loc(nelleft,nelright)); :}
+            | /* epsilon */
+               {: RESULT = null; :}
+            ;
+neExprList ::= expr:e COMMA neExprList:nel
+               {: RESULT = new NeExprList(e, nel, loc(eleft,eright)); :}
+            |  expr:e
+               {: RESULT = new NeExprList(e, loc(eleft,eright)); :}
+            ;
+
 expr ::= INTCONST:c
          {: RESULT = new ConstExpr(c, loc(cleft, cright)); :}
       |  binaryExpr:e
