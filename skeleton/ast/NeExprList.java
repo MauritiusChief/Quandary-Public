@@ -13,10 +13,14 @@ public class NeExprList extends ASTNode {
     public NeExprList(Expr expr, Location loc){
         super(loc);
         this.neExprList = null;
+        this.expr = expr;
     }
 
     public NeExprList getNeExprList() {
         return neExprList;
+    }
+    public Expr getExpr() {
+        return expr;
     }
 
     @Override

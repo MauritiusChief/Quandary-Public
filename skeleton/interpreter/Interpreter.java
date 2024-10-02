@@ -6,6 +6,9 @@ import java.util.Random;
 import parser.ParserWrapper;
 import ast.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Interpreter {
 
     // Process return codes
@@ -132,15 +135,15 @@ public class Interpreter {
     }
 
     void evaluateFormalDeclList(FormalDeclList formalDeclList, long arg, Map<String, Long> variablesMap){
-        evaluateNeFormalDeclList(formalDeclList.getNeFormalDeclListNode(), arg, variablesMap);
+        evaluateNeFormalDeclList(formalDeclList.getNeFormalDeclList(), arg, variablesMap);
     }
 
     void evaluateNeFormalDeclList(NeFormalDeclList neFormalDeclList, long arg, Map<String, Long> variablesMap){
-        variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), arg, variablesMap);
+        variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), arg);
     }
 
     Long evaluateExprList(ExprList exprList, long arg, Map<String, Long> variablesMap) {
-        Long value = evaluateNeExprList(exprList.getNeExprList(), variablesMap);
+        Long value = evaluateNeExprList(exprList.getNeExprList(), arg, variablesMap);
         if (exprList.getNeExprList() != null){
             return evaluateNeExprList(exprList.getNeExprList(), arg, variablesMap);   
         }
@@ -148,11 +151,11 @@ public class Interpreter {
     }
 
     Long evaluateNeExprList(NeExprList neExprList, Long arg, Map<String, Long> variablesMap){
-        Long firstExprValue = evaluate(neExprList.getExpr(),variablesMap);
-        if (neExprList.getneExprList() != null) {
-            return evaluate(neExprList.getneExprList(), arg, variablesMap);
+        Long exprValue = evaluateExpr(neExprList.getExpr(),variablesMap);
+        if (neExprList.getNeExprList() != null) {
+            return evaluateNeExprList(neExprList.getNeExprList(), arg, variablesMap);
         }
-        return firstExprValue; 
+        return exprValue; 
     }
 
     boolean evaluateCond(Cond cond, Map<String, Long> variablesMap){
@@ -172,8 +175,8 @@ public class Interpreter {
     }
 
     Long evaluateStmt(Stmt stmt, Map<String, Long> variablesMap){
-        if (stmt instanceof DeclarationStmt){
-            DeclStmt declStmt = (DeclarationStmt)stmt;
+        if (stmt instanceof DeclStmt){
+            DeclStmt declStmt = (DeclStmt)stmt;
             String varName = declStmt.getVarDecl().getIdent().getIdentStr();
             Long value = evaluateExpr(declStmt.getExpr(),variablesMap);
             variablesMap.put(varName, value);
@@ -182,9 +185,9 @@ public class Interpreter {
         } else if (stmt instanceof IfStmt) {
             IfStmt ifStatement = (IfStmt)stmt;
             boolean condition = evaluateCond(ifStatement.getCond(),variablesMap);
-            Long value = null
+            Long value = null;
             if (condition){
-                value = evaluate(ifStatement.getStmt(), variablesMap);
+                value = evaluateStmt(ifStatement.getStmt(), variablesMap);
             }
             // System.out.println(value);
             return value;
@@ -193,26 +196,26 @@ public class Interpreter {
             boolean condition = evaluateCond(ifElseStmt.getCond(),variablesMap);
             Long value = null;
             if (condition){
-                value = evaluate(ifElseStmt.getStmt1(), variablesMap);
+                value = evaluateStmt(ifElseStmt.getStmt1(), variablesMap);
             } else {
-                value = evaluate(ifElseStmt.getStmt2(), variablesMap);
+                value = evaluateStmt(ifElseStmt.getStmt2(), variablesMap);
             }
             // System.out.println(value);
             return value;
         } else if (stmt instanceof PrintStmt) {
             PrintStmt printStmt = (PrintStmt)stmt;
-            Long value = evaluate(printStmt.getExpression(), variablesMap);
+            Long value = evaluateExpr(printStmt.getExpr(), variablesMap);
             System.out.println(value);
             // System.out.println(value);
             return value;
         } else if (stmt instanceof ReturnStmt) {
             ReturnStmt returnStmt = (ReturnStmt)stmt;
-            Long value = evaluate(returnStmt.getExpression(),variablesMap);
+            Long value = evaluateExpr(returnStmt.getExpr(),variablesMap);
             // System.out.println(value);
             return value;
         } else if (stmt instanceof StmtBlock) {
             StmtBlock stmtBlock = (StmtBlock)stmt;
-            Long value = evaluate(stmtBlock.getStmtList(), variablesMap);
+            Long value = evaluateStmtList(stmtBlock.getStmtList(), variablesMap);
             // System.out.println(value);
             return value;
         } else {
@@ -220,22 +223,21 @@ public class Interpreter {
         }
     }
 
-
-    Object evaluate(Expr expr) {
+    Long evaluateExpr(Expr expr, Map<String, Long> variablesMap) {
         if (expr instanceof ConstExpr) {
-            return ((ConstExpr)expr).getValue();
+            return (Long) ((ConstExpr)expr).getValue();
         } else if (expr instanceof BinaryExpr) {
             BinaryExpr binaryExpr = (BinaryExpr)expr;
             switch (binaryExpr.getOperator()) {
-                case BinaryExpr.PLUS: return (Long)evaluate(binaryExpr.getLeftExpr()) + (Long)evaluate(binaryExpr.getRightExpr());
-                case BinaryExpr.MINUS: return (Long)evaluate(binaryExpr.getLeftExpr()) - (Long)evaluate(binaryExpr.getRightExpr());
-                case BinaryExpr.TIMES: return (Long)evaluate(binaryExpr.getLeftExpr()) * (Long)evaluate(binaryExpr.getRightExpr());
+                case BinaryExpr.PLUS: return (Long)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap) + (Long)evaluateExpr(binaryExpr.getRightExpr(),variablesMap);
+                case BinaryExpr.MINUS: return (Long)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap) - (Long)evaluateExpr(binaryExpr.getRightExpr(),variablesMap);
+                case BinaryExpr.TIMES: return (Long)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap) * (Long)evaluateExpr(binaryExpr.getRightExpr(),variablesMap);
                 default: throw new RuntimeException("Unhandled Binary operator");
             }
         } else if (expr instanceof UnaryExpr) {
             UnaryExpr unaryExpr = (UnaryExpr)expr;
             switch (unaryExpr.getOperator()) {
-                case UnaryExpr.NEGATE: return - (Long)evaluate(unaryExpr.getExpr());
+                case UnaryExpr.NEGATE: return - (Long)evaluateExpr(unaryExpr.getExpr(),variablesMap);
                 default: throw new RuntimeException("Unhandled Unary operator");
             }
         } else {

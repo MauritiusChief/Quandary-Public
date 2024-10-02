@@ -30,7 +30,7 @@ parser code {:
 terminal PLUS, MINUS, TIMES, LPAREN, RPAREN, RETURN, SEMICOL, IF, ELSE, PRINT, LBRACE, RBRACE, COMMA, INT;
 terminal LE, GE, EQ, NE, LT, GT, AND, OR, NOT;
 terminal Long    INTCONST;
-terminal IdentExpr  IDENT;
+terminal String     IDENT;
 
 non terminal Program         program;
 non terminal Expr            expr;
@@ -84,7 +84,7 @@ neFormalDeclList ::= varDecl:v1 COMMA neFormalDeclList:nfl
                   ;
 
 varDecl ::= INT IDENT:i
-            {: RESULT = new VarDecl(i, loc(ileft,iright)); :}
+            {: RESULT = new VarDecl( new IdentExpr(i, loc(ileft,iright)), loc(ileft,iright)); :}
             ;
 
 stmtList ::= stmt:s stmtList:sl

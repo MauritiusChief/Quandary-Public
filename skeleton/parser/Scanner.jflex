@@ -54,6 +54,8 @@ new_line = \r|\n|\r\n;
 
 white_space = {new_line} | [ \t\f]
 
+Identifier = [_a-zA-Z] [_a-zA-Z0-9]*
+
 %%
 
 <YYINITIAL>{
@@ -88,6 +90,9 @@ white_space = {new_line} | [ \t\f]
 "&&"              { return symbol("&&", AND); }
 "||"              { return symbol("||", OR); }
 "!"               { return symbol("!", NOT); }
+
+/* identifiers */
+{Identifier} {return symbol("Identifier", IDENT, yytext());}
 
 /* You shouldn't need to modify anything below this */
 
