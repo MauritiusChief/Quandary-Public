@@ -83,9 +83,13 @@ neFormalDeclList ::= varDecl:v1 COMMA neFormalDeclList:nfl
                      {: RESULT = new NeFormalDeclList(v1,null,loc(v1left,v1right)); :}
                   ;
 
-varDecl ::= INT IDENT:i
-            {: RESULT = new VarDecl( new IdentExpr(i, loc(ileft,iright)), loc(ileft,iright)); :}
+varDecl ::= type:t IDENT:i
+            {: RESULT = new VarDecl(t, new IdentExpr(i, loc(ileft,iright)), loc(tleft,tright)); :}
             ;
+
+type ::= INT
+         {: RESULT = new Type(Type.INT,loc(0,0)); :}
+         ;
 
 stmtList ::= stmt:s stmtList:sl
                {: RESULT = new StmtList(s, sl, loc(sleft, sright)); :}
@@ -148,6 +152,8 @@ expr ::= INTCONST:c
          {: RESULT = e; :}
       |  LPAREN expr:e RPAREN
          {: RESULT = e; :}
+      |  IDENT:s
+         {: RESULT = new IdentExpr(s,loc(sleft,sright)); :}
       ;
 
 binaryExpr ::= expr:e1 PLUS expr:e2
