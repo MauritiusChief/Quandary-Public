@@ -21,6 +21,9 @@ public class FuncDefList extends ASTNode {
 
     @Override
     public String toString() {
+        if(funcDefList == null){
+            return funcDef.toString();
+        }
         return funcDef.toString() +  funcDefList.toString();
     }
 }

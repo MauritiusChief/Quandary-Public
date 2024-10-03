@@ -22,6 +22,9 @@ public class NeFormalDeclList extends ASTNode {
 
     @Override
     public String toString() {
+        if (neFormalDeclList == null){
+            return varDecl.toString();
+        }
         return varDecl.toString() + "," + neFormalDeclList.toString();
     }
 }

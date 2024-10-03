@@ -22,6 +22,6 @@ public class Type extends ASTNode {
         switch (type) {
             case 1:  s = "int"; break;
         }
-        return s;
+        return s + " ";
     }
 }

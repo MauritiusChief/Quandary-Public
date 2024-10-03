@@ -17,6 +17,6 @@ public class PrintStmt extends Stmt {
 
     @Override
     public String toString() {
-        return "print" + expr.toString();
+        return "print " + expr.toString() + ";";
     }
 }

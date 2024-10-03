@@ -20,6 +20,7 @@ public class Interpreter {
     public static final int EXIT_QUANDARY_HEAP_OUT_OF_MEMORY_ERROR = 5;
     public static final int EXIT_DATA_RACE_ERROR = 6;
     public static final int EXIT_NONDETERMINISM_ERROR = 7;
+    private static boolean returnFlag = false;
 
     static private Interpreter interpreter;
 
@@ -77,7 +78,7 @@ public class Interpreter {
             ex.printStackTrace();
             Interpreter.fatalError("Uncaught parsing error: " + ex, Interpreter.EXIT_PARSING_ERROR);
         }
-        //astRoot.println(System.out);
+        astRoot.println(System.out);
         interpreter = new Interpreter(astRoot);
         interpreter.initMemoryManager(gcType, heapBytes);
         String returnValueAsString = interpreter.executeRoot(astRoot, quandaryArg).toString();
@@ -115,6 +116,10 @@ public class Interpreter {
         if (id.equals("main")) {
             mainFunc = funcDefList.getFuncDef();
             Map<String, Long> variablesMap = new HashMap<>();
+            // Object result = interpreter.evaluateFuncDef(mainFunc, arg, variablesMap);
+            // if (result == null) {
+            //     throw new NullPointerException("evaluateFuncDef returned null");
+            // }
             return evaluateFuncDef(mainFunc, arg, variablesMap);
         } else {
             throw new RuntimeException("no main method");
@@ -125,12 +130,30 @@ public class Interpreter {
         if (funcDef.getFormalDeclList() != null) {
             evaluateFormalDeclList(funcDef.getFormalDeclList(), arg, variablesMap);
         }
+        // Object result = interpreter.evaluateStmtList(funcDef.getStmtList(), variablesMap);
+        // if (result == null) {
+        //     throw new NullPointerException("evaluateStmtList returned null");
+        // }
         return evaluateStmtList(funcDef.getStmtList(), variablesMap);
     }
 
     Long evaluateStmtList(StmtList stmtList, Map<String, Long> variablesMap){
-        // System.out.println(stmtList.getStmt().toString());
         Long stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
+        // if (stmt == null) {
+        //     throw new NullPointerException("evaluateStmt returned null");
+        // }
+        if (returnFlag == true) {
+            return stmt;
+        }
+        while (stmtList.getStmtList() != null)
+        {
+            stmtList = stmtList.getStmtList();
+            stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
+            
+            if(returnFlag == true){
+                break;
+            }
+        }
         return stmt;
     }
 
@@ -152,9 +175,9 @@ public class Interpreter {
 
     Long evaluateNeExprList(NeExprList neExprList, Long arg, Map<String, Long> variablesMap){
         Long exprValue = evaluateExpr(neExprList.getExpr(),variablesMap);
-        if (neExprList.getNeExprList() != null) {
-            return evaluateNeExprList(neExprList.getNeExprList(), arg, variablesMap);
-        }
+        // if (neExprList.getNeExprList() != null) {
+        //     return evaluateNeExprList(neExprList.getNeExprList(), arg, variablesMap);
+        // }
         return exprValue; 
     }
 
@@ -205,12 +228,12 @@ public class Interpreter {
         } else if (stmt instanceof PrintStmt) {
             PrintStmt printStmt = (PrintStmt)stmt;
             Long value = evaluateExpr(printStmt.getExpr(), variablesMap);
-            System.out.println(value);
             // System.out.println(value);
             return value;
         } else if (stmt instanceof ReturnStmt) {
             ReturnStmt returnStmt = (ReturnStmt)stmt;
             Long value = evaluateExpr(returnStmt.getExpr(),variablesMap);
+            returnFlag = true;
             // System.out.println(value);
             return value;
         } else if (stmt instanceof StmtBlock) {

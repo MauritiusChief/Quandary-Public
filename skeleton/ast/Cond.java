@@ -53,7 +53,7 @@ public class Cond extends Expr {
             case GT: s = ">"; break;
             case AND:  s = "&&"; break;
             case OR: s = "||"; break;
-            case NOT: s = "!"; break;
+            case NOT: s = "!"; return "(" + s + " " + expr1 + ")";
         }
         return "(" + expr1 + " " + s + " " + expr2 + ")";
     }

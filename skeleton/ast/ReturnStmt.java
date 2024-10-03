@@ -17,6 +17,6 @@ public class ReturnStmt extends Stmt {
 
     @Override
     public String toString() {
-        return "return" + expr.toString();
+        return "return " + expr.toString() + ";";
     }
 }
