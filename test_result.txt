@@ -7,35 +7,21 @@ Testing  badparse.q 42, worth 1 points: PASSED
 Testing  minus2.q 42, worth 1 points: PASSED
 Testing  minus3.q 5, worth 1 points: PASSED
 Testing  sBasicCond.q 42, worth 1 points: PASSED
-Testing  sBasicNested.q 4, worth 1 points: FAILED
-REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is Interpreter returned 14 Quandary process returned 0
-Testing  sMoreCond.q 44, worth 1 points: FAILED
-REF_OUT is Interpreter returned -39 Quandary process returned 0
-SUB_OUT is Interpreter returned 54 Quandary process returned 0
+Testing  sBasicNested.q 4, worth 1 points: PASSED
+Testing  sMoreCond.q 44, worth 1 points: PASSED
 Testing  sMoreNested.q 4, worth 1 points: PASSED
 Testing  sCondError.q 4, worth 1 points: PASSED
 Testing  square.q 35, worth 1 points: PASSED
 Testing  abs.q -34632, worth 1 points: PASSED
 Testing  conds.q 42, worth 1 points: PASSED
 Testing  conds2.q 42, worth 1 points: PASSED
-Testing  vars.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 25 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
+Testing  vars.q 42, worth 1 points: PASSED
 Testing  sosimple.q 42, worth 1 points: PASSED
-Testing  compound.q 22, worth 1 points: FAILED
-REF_OUT is Interpreter returned 22 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  compound.q 22, worth 1 points: PASSED
 Testing  oops.q 22, worth 1 points: PASSED
-Testing  morevars.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 58565 Quandary process returned 0
-SUB_OUT is Interpreter returned 242 Quandary process returned 0
-Testing  isPrime.q 17, worth 1 points: FAILED
-REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  isPrime.q 13, worth 2 points: FAILED
-REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  morevars.q 42, worth 1 points: PASSED
+Testing  isPrime.q 17, worth 1 points: PASSED
+Testing  isPrime.q 13, worth 2 points: PASSED
 Testing  abs.q -392, worth 2 points: PASSED
 Testing  arithmetic_test.q 8, worth 2 points: PASSED
 Testing  sBasicCondelse.q 16, worth 2 points: PASSED
@@ -43,111 +29,59 @@ Testing  logicCond.q -30, worth 2 points: PASSED
 Testing  not2.q 1000, worth 2 points: FAILED
 REF_OUT is Interpreter returned 947 Quandary process returned 0
 SUB_OUT is Interpreter returned 1053 Quandary process returned 0
-Testing  sBasicNested.q 20, worth 2 points: FAILED
-REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is Interpreter returned 30 Quandary process returned 0
-Testing  vars.q 35, worth 2 points: FAILED
-REF_OUT is Interpreter returned 25 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
+Testing  sBasicNested.q 20, worth 2 points: PASSED
+Testing  vars.q 35, worth 2 points: PASSED
 Testing  sCondError.q 34, worth 2 points: PASSED
 Testing  minus3.q 22, worth 2 points: PASSED
-Testing  morevars2.q 24, worth 2 points: FAILED
-REF_OUT is Interpreter returned 25 Quandary process returned 0
-SUB_OUT is Interpreter returned 24 Quandary process returned 0
-Testing  morevars2.q 25, worth 2 points: FAILED
-REF_OUT is Interpreter returned 105 Quandary process returned 0
-SUB_OUT is Interpreter returned 25 Quandary process returned 0
+Testing  morevars2.q 24, worth 2 points: PASSED
+Testing  morevars2.q 25, worth 2 points: PASSED
 Testing  lg2.q 50, worth 2 points: PASSED
-Testing  lg3.q 20, worth 2 points: FAILED
-REF_OUT is Interpreter returned 4 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  notyet.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 1000000 Quandary process returned 0
-SUB_OUT is Interpreter returned 100 Quandary process returned 0
-Testing  earlyreturn.q 10, worth 2 points: FAILED
-REF_OUT is Interpreter returned 12 Quandary process returned 0
-SUB_OUT is Interpreter returned 11 Quandary process returned 0
-Testing  cube.q 7, worth 2 points: FAILED
-REF_OUT is Interpreter returned 343 Quandary process returned 0
-SUB_OUT is Interpreter returned 49 Quandary process returned 0
+Testing  lg3.q 20, worth 2 points: PASSED
+Testing  notyet.q 42, worth 2 points: PASSED
+Testing  earlyreturn.q 10, worth 2 points: PASSED
+Testing  cube.q 7, worth 2 points: PASSED
 Testing  cond7.q -10, worth 2 points: PASSED
 Testing  logicCond7.q -5, worth 2 points: PASSED
-Testing  testprint.q 8, worth 2 points: FAILED
-REF_OUT is Interpreter returned 64 Quandary process returned 0
-SUB_OUT is Interpreter returned 8 Quandary process returned 0
+Testing  testprint.q 8, worth 2 points: PASSED
 Testing  simple2.q 16, worth 2 points: PASSED
 Testing  simple3.q 42, worth 2 points: PASSED
-Testing  simple4.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 40 Quandary process returned 0
-SUB_OUT is Interpreter returned 100 Quandary process returned 0
+Testing  simple4.q 42, worth 2 points: PASSED
 Testing  simple5.q 125, worth 2 points: PASSED
 Testing  cond8.q 0, worth 2 points: PASSED
-Testing  cond8.q 1, worth 2 points: FAILED
-REF_OUT is Interpreter returned 30 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  cond8.q 1, worth 2 points: PASSED
 Testing  cond9.q 42, worth 2 points: PASSED
-Testing  vars3.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 1000 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
-Testing  morevars3.q 5, worth 2 points: FAILED
-REF_OUT is Interpreter returned 25 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  morevars3.q 15, worth 2 points: FAILED
-REF_OUT is Interpreter returned 225 Quandary process returned 0
-SUB_OUT is Interpreter returned 30 Quandary process returned 0
+Testing  vars3.q 42, worth 2 points: PASSED
+Testing  morevars3.q 5, worth 2 points: PASSED
+Testing  morevars3.q 15, worth 2 points: PASSED
 Testing  morevars4.q 15, worth 2 points: PASSED
-Testing  compound2.q 1, worth 2 points: FAILED
-REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
+Testing  compound2.q 1, worth 2 points: PASSED
 Testing  compound2.q 5, worth 2 points: PASSED
 Testing  logicCond7.q -1, worth 2 points: PASSED
 Testing  isPrime.q 15, worth 2 points: PASSED
 Testing  sMoreNested.q 100, worth 2 points: PASSED
 Testing  funcList.q 10, worth 1 points: PASSED
-Testing  ident.q 1, worth 1 points: FAILED
-REF_OUT is Interpreter returned 39 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
-Testing  nestedIf.q 51, worth 1 points: FAILED
-REF_OUT is Interpreter returned 56 Quandary process returned 0
-SUB_OUT is Interpreter returned 2 Quandary process returned 0
+Testing  ident.q 1, worth 1 points: PASSED
+Testing  nestedIf.q 51, worth 1 points: PASSED
 Testing  nestedIf.q 41, worth 1 points: PASSED
-Testing  nestedIf.q 40, worth 1 points: FAILED
-REF_OUT is Interpreter returned 3 Quandary process returned 0
-SUB_OUT is Interpreter returned 2 Quandary process returned 0
-Testing  nestedIf.q 25, worth 1 points: FAILED
-REF_OUT is Interpreter returned -25 Quandary process returned 0
-SUB_OUT is Interpreter returned 2 Quandary process returned 0
-Testing  nestedIf.q 12, worth 1 points: FAILED
-REF_OUT is Interpreter returned 9 Quandary process returned 0
-SUB_OUT is Interpreter returned 2 Quandary process returned 0
-Testing  nestedIf.q -5, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Interpreter returned 2 Quandary process returned 0
+Testing  nestedIf.q 40, worth 1 points: PASSED
+Testing  nestedIf.q 25, worth 1 points: PASSED
+Testing  nestedIf.q 12, worth 1 points: PASSED
+Testing  nestedIf.q -5, worth 1 points: PASSED
 Testing  cond.q -3, worth 1 points: PASSED
 Testing  cond.q 10, worth 1 points: PASSED
 Testing  cond.q 782, worth 1 points: PASSED
 Testing  cond2.q -3, worth 1 points: PASSED
 Testing  cond2.q 10, worth 1 points: PASSED
 Testing  cond2.q 782, worth 1 points: PASSED
-Testing  cond3.q 12, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  cond3.q 12, worth 1 points: PASSED
 Testing  cond3.q 823, worth 1 points: PASSED
 Testing  cond3.q 1202, worth 1 points: PASSED
-Testing  cond4.q 12, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  cond4.q 823, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  cond4.q 12, worth 1 points: PASSED
+Testing  cond4.q 823, worth 1 points: PASSED
 Testing  cond4.q 1202, worth 1 points: PASSED
 Testing  cond5.q 100, worth 1 points: PASSED
-Testing  cond5.q 99, worth 1 points: FAILED
-REF_OUT is Interpreter returned 20 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  cond6.q 100, worth 1 points: FAILED
-REF_OUT is Interpreter returned 120 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  cond5.q 99, worth 1 points: PASSED
+Testing  cond6.q 100, worth 1 points: PASSED
 Testing  cond6.q 99, worth 1 points: PASSED
 Testing  cond7.q 10, worth 1 points: PASSED
 Testing  cond7.q -10, worth 1 points: PASSED
@@ -215,15 +149,9 @@ Testing  badCond8.q 100, worth 1 points: PASSED
 Testing  badCond9.q 100, worth 1 points: PASSED
 Testing  badCond10.q 100, worth 1 points: PASSED
 Testing  badCond11.q 100, worth 1 points: PASSED
-Testing  cj-control-flow.q 0, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  cj-control-flow.q 5, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  cj-control-flow.q 10, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  cj-control-flow.q 0, worth 1 points: PASSED
+Testing  cj-control-flow.q 5, worth 1 points: PASSED
+Testing  cj-control-flow.q 10, worth 1 points: PASSED
 Testing  cj-control-flow.q 15, worth 1 points: PASSED
 Testing  cj-control-flow.q 20, worth 1 points: PASSED
 Testing  cj-control-flow.q 25, worth 1 points: PASSED
@@ -231,131 +159,61 @@ Testing  cj-control-flow.q 30, worth 1 points: PASSED
 Testing  cj-assignment.q 123, worth 1 points: PASSED
 Testing  cj-assignment.q 456, worth 1 points: PASSED
 Testing  cj-scope-1.q 0, worth 1 points: PASSED
-Testing  cj-scope-1.q 1, worth 1 points: FAILED
-REF_OUT is Interpreter returned 456 Quandary process returned 0
-SUB_OUT is Interpreter returned 123 Quandary process returned 0
-Testing  cj-scope-1.q 2, worth 1 points: FAILED
-REF_OUT is Interpreter returned 789 Quandary process returned 0
-SUB_OUT is Interpreter returned 123 Quandary process returned 0
+Testing  cj-scope-1.q 1, worth 1 points: PASSED
+Testing  cj-scope-1.q 2, worth 1 points: PASSED
 Testing  sosimple2.q 42, worth 2 points: PASSED
 Testing  sosimple3.q 42, worth 2 points: PASSED
-Testing  printreturn.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 35 Quandary process returned 0
-SUB_OUT is Interpreter returned 12 Quandary process returned 0
-Testing  simpleif.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 23948 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  simpleif2.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 23948 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  ifelse2.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  printreturn.q 42, worth 2 points: PASSED
+Testing  simpleif.q 42, worth 2 points: PASSED
+Testing  simpleif2.q 42, worth 2 points: PASSED
+Testing  ifelse2.q 42, worth 2 points: PASSED
 Testing  sBasicCond.q 42, worth 2 points: PASSED
-Testing  vars3.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 1000 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
-Testing  vars4.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
-Testing  ident.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 39 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
+Testing  vars3.q 42, worth 2 points: PASSED
+Testing  vars4.q 42, worth 2 points: PASSED
+Testing  ident.q 42, worth 2 points: PASSED
 Testing  logicCond7.q 22, worth 2 points: PASSED
 Testing  simple5.q 100, worth 2 points: PASSED
-Testing  cube.q 3341, worth 2 points: FAILED
-REF_OUT is Interpreter returned 37293180821 Quandary process returned 0
-SUB_OUT is Interpreter returned 11162281 Quandary process returned 0
+Testing  cube.q 3341, worth 2 points: PASSED
 Testing  ifelse3.q 100, worth 2 points: PASSED
-Testing  nestedIf.q 32, worth 2 points: FAILED
-REF_OUT is Interpreter returned 3 Quandary process returned 0
-SUB_OUT is Interpreter returned 2 Quandary process returned 0
-Testing  lg3.q 44, worth 2 points: FAILED
-REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  abs.q 3341, worth 2 points: FAILED
-REF_OUT is Interpreter returned 3341 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  earlyreturn.q 100, worth 2 points: FAILED
-REF_OUT is Interpreter returned 102 Quandary process returned 0
-SUB_OUT is Interpreter returned 101 Quandary process returned 0
+Testing  nestedIf.q 32, worth 2 points: PASSED
+Testing  lg3.q 44, worth 2 points: PASSED
+Testing  abs.q 3341, worth 2 points: PASSED
+Testing  earlyreturn.q 100, worth 2 points: PASSED
 Testing  not2.q 1234, worth 2 points: PASSED
-Testing  morevars4.q 0, worth 2 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  morevars5.q 5, worth 2 points: FAILED
-REF_OUT is Interpreter returned 25 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
-Testing  cj-scope-1.q 3, worth 2 points: FAILED
-REF_OUT is Interpreter returned 789 Quandary process returned 0
-SUB_OUT is Interpreter returned 123 Quandary process returned 0
-Testing  isPrime.q 8, worth 2 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  sMoreCond.q 2022, worth 2 points: FAILED
-REF_OUT is Interpreter returned -2017 Quandary process returned 0
-SUB_OUT is Interpreter returned 2032 Quandary process returned 0
-Testing  sMoreNested.q 3341, worth 2 points: FAILED
-REF_OUT is Interpreter returned 3331 Quandary process returned 0
-SUB_OUT is Interpreter returned 1000 Quandary process returned 0
+Testing  morevars4.q 0, worth 2 points: PASSED
+Testing  morevars5.q 5, worth 2 points: PASSED
+Testing  cj-scope-1.q 3, worth 2 points: PASSED
+Testing  isPrime.q 8, worth 2 points: PASSED
+Testing  sMoreCond.q 2022, worth 2 points: PASSED
+Testing  sMoreNested.q 3341, worth 2 points: PASSED
 Testing  swoc-calc.q 42, worth 2 points: PASSED
 Testing  swoc-calc-with-arg.q 0, worth 2 points: PASSED
 Testing  swoc-calc-with-arg.q 101, worth 2 points: PASSED
 Testing  swoc-calc-with-arg-i64.q 101, worth 2 points: PASSED
-Testing  swoc-var.q 4, worth 2 points: FAILED
-REF_OUT is Interpreter returned 4160 Quandary process returned 0
-SUB_OUT is Interpreter returned 4 Quandary process returned 0
-Testing  swoc-var.q 17, worth 2 points: FAILED
-REF_OUT is Interpreter returned -16575 Quandary process returned 0
-SUB_OUT is Interpreter returned 17 Quandary process returned 0
-Testing  swoc-print.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Interpreter returned 2 Quandary process returned 0
-Testing  swoc-if.q 4, worth 2 points: FAILED
-REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  swoc-var.q 4, worth 2 points: PASSED
+Testing  swoc-var.q 17, worth 2 points: PASSED
+Testing  swoc-print.q 42, worth 2 points: PASSED
+Testing  swoc-if.q 4, worth 2 points: PASSED
 Testing  swoc-if.q 5, worth 2 points: PASSED
 Testing  swoc-if-else.q 4, worth 2 points: PASSED
 Testing  swoc-if-else.q 5, worth 2 points: PASSED
-Testing  swoc-if-multiple-return.q 4, worth 2 points: FAILED
-REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  swoc-if-multiple-return.q 4, worth 2 points: PASSED
 Testing  swoc-cond-eq-ne.q 4, worth 2 points: PASSED
 Testing  swoc-nesting.q 4, worth 2 points: FAILED
 REF_OUT is Interpreter returned -1020 Quandary process returned 0
-SUB_OUT is Interpreter returned 4 Quandary process returned 0
-Testing  swoc-nesting.q 3, worth 2 points: FAILED
-REF_OUT is Interpreter returned 4 Quandary process returned 0
-SUB_OUT is Interpreter returned 3 Quandary process returned 0
-Testing  swoc-combi.q 1024, worth 2 points: FAILED
-REF_OUT is Interpreter returned 2173253451776 Quandary process returned 0
-SUB_OUT is Interpreter returned 1024 Quandary process returned 0
-Testing  swoc-combi.q -8, worth 2 points: FAILED
-REF_OUT is Interpreter returned -4 Quandary process returned 0
-SUB_OUT is Interpreter returned -8 Quandary process returned 0
-Testing  ident.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 39 Quandary process returned 0
 SUB_OUT is Interpreter returned 5 Quandary process returned 0
-Testing  earlyreturn.q 100, worth 2 points: FAILED
-REF_OUT is Interpreter returned 102 Quandary process returned 0
-SUB_OUT is Interpreter returned 101 Quandary process returned 0
+Testing  swoc-nesting.q 3, worth 2 points: PASSED
+Testing  swoc-combi.q 1024, worth 2 points: PASSED
+Testing  swoc-combi.q -8, worth 2 points: PASSED
+Testing  ident.q 42, worth 2 points: PASSED
+Testing  earlyreturn.q 100, worth 2 points: PASSED
 Testing  not2.q 1234, worth 2 points: PASSED
-Testing  morevars4.q 0, worth 2 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  morevars5.q 5, worth 2 points: FAILED
-REF_OUT is Interpreter returned 25 Quandary process returned 0
-SUB_OUT is Interpreter returned 5 Quandary process returned 0
-Testing  cj-scope-1.q 3, worth 2 points: FAILED
-REF_OUT is Interpreter returned 789 Quandary process returned 0
-SUB_OUT is Interpreter returned 123 Quandary process returned 0
-Testing  sMoreCond.q 2022, worth 2 points: FAILED
-REF_OUT is Interpreter returned -2017 Quandary process returned 0
-SUB_OUT is Interpreter returned 2032 Quandary process returned 0
-Testing  sMoreNested.q 3341, worth 2 points: FAILED
-REF_OUT is Interpreter returned 3331 Quandary process returned 0
-SUB_OUT is Interpreter returned 1000 Quandary process returned 0
+Testing  morevars4.q 0, worth 2 points: PASSED
+Testing  morevars5.q 5, worth 2 points: PASSED
+Testing  cj-scope-1.q 3, worth 2 points: PASSED
+Testing  sMoreCond.q 2022, worth 2 points: PASSED
+Testing  sMoreNested.q 3341, worth 2 points: PASSED
 Testing  isrefint.q 42, worth 0 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
 SUB_OUT is Couldn't repair and continue parse (Symbol: ( (unknown:2/34(2) - unknown:2/34(34))) Quandary process returned 1
-Total score: 160 out of 287
+Total score: 280 out of 287
