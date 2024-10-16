@@ -49,7 +49,7 @@ non terminal StmtList        stmtList;
 non terminal Cond            cond;
 
 precedence left AND, OR;
-precedence right NOT;
+precedence left NOT;
 precedence left EQ, NE, LE, GE, LT, GT;
 precedence left PLUS, MINUS;
 precedence left TIMES;
