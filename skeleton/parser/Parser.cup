@@ -48,8 +48,9 @@ non terminal Stmt            stmt;
 non terminal StmtList        stmtList;
 non terminal Cond            cond;
 
-precedence left AND, OR;
-precedence right NOT;
+precedence left OR;
+precedence left AND;
+precedence left NOT;
 precedence left EQ, NE, LE, GE, LT, GT;
 precedence left PLUS, MINUS;
 precedence left TIMES;
@@ -112,23 +113,24 @@ stmt ::= varDecl:v EQUAL expr:e SEMICOL
       ;
 
 cond ::= expr:e1 LE expr:e2
-         {: RESULT = new Cond(e1, Cond.LE, e2, loc(e1left, e1right)); :}
+         {: RESULT = new RelationalCond(e1, Cond.Operator.LE, e2, loc(e1left, e1right)); :}
       | expr:e1 GE expr:e2
-         {: RESULT = new Cond(e1, Cond.GE, e2, loc(e1left, e1right)); :}
+         {: RESULT = new RelationalCond(e1, Cond.Operator.GE, e2, loc(e1left, e1right)); :}
       | expr:e1 EQ expr:e2
-         {: RESULT = new Cond(e1, Cond.EQ, e2, loc(e1left, e1right)); :}
+         {: RESULT = new RelationalCond(e1, Cond.Operator.EQ, e2, loc(e1left, e1right)); :}
       | expr:e1 NE expr:e2
-         {: RESULT = new Cond(e1, Cond.NE, e2, loc(e1left, e1right)); :}
+         {: RESULT = new RelationalCond(e1, Cond.Operator.NE, e2, loc(e1left, e1right)); :}
       | expr:e1 LT expr:e2
-         {: RESULT = new Cond(e1, Cond.LT, e2, loc(e1left, e1right)); :}
+         {: RESULT = new RelationalCond(e1, Cond.Operator.LT, e2, loc(e1left, e1right)); :}
       | expr:e1 GT expr:e2
-         {: RESULT = new Cond(e1, Cond.GT, e2, loc(e1left, e1right)); :}
+         {: RESULT = new RelationalCond(e1, Cond.Operator.GT, e2, loc(e1left, e1right)); :}
+
       | cond:c1 AND cond:c2
-         {: RESULT = new Cond(c1, Cond.AND, c2, loc(c1left, c1right)); :}
+         {: RESULT = new BinaryCond(c1, Cond.Operator.AND, c2, loc(c1left, c1right)); :}
       | cond:c1 OR cond:c2
-         {: RESULT = new Cond(c1, Cond.OR, c2, loc(c1left, c1right)); :}
-      | NOT cond:c1
-         {: RESULT = new Cond(c1, Cond.NOT, null, loc(c1left, c1right)); :}
+         {: RESULT = new BinaryCond(c1, Cond.Operator.OR, c2, loc(c1left, c1right)); :}
+      | NOT cond:c
+         {: RESULT = new NegationCond(c, loc(cleft, cright)); :}
       | LPAREN cond:c RPAREN
          {: RESULT = c; :}
       ;

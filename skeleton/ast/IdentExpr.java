@@ -15,6 +15,6 @@ public class IdentExpr extends Expr {
 
     @Override
     public String toString() {
-        return ident.toString();
+        return ident;
     }
 }

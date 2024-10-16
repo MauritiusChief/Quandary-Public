@@ -264,8 +264,9 @@ public class Interpreter {
                 case UnaryExpr.NEGATE: return - (Long)evaluateExpr(unaryExpr.getExpr(),variablesMap);
                 default: throw new RuntimeException("Unhandled Unary operator");
             }
-        } else if(expr instanceof IdentExpr){            
-            return variablesMap.get(((IdentExpr)expr).getIdentStr());
+        } else if(expr instanceof IdentExpr){        
+            IdentExpr identExpr = (IdentExpr)expr;
+            return variablesMap.get(identExpr.getIdentStr());
         } else {
             throw new RuntimeException("Unhandled Expr type");
         }
