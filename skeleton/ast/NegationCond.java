@@ -9,7 +9,7 @@ public class NegationCond extends Cond {
         this.cond = cond;
     }
 
-    public Expr getCond() {
+    public Cond getCond() {
         return cond;
     }
 

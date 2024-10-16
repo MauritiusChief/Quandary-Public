@@ -6,7 +6,7 @@ public class RelationalCond extends Cond {
     final Operator operator;
     final Expr expr2;
 
-    public RelationalCond(Expr expr1, int operator, Expr expr2, Location loc) {
+    public RelationalCond(Expr expr1, Operator operator, Expr expr2, Location loc) {
         super(loc);
         this.expr1 = expr1;
         this.operator = operator;

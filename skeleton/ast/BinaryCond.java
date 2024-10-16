@@ -6,14 +6,14 @@ public class BinaryCond extends Cond {
     final Operator operator;
     final Cond cond2;
 
-    public BinaryCond(Cond cond1, int operator, Cond cond2, Location loc) {
+    public BinaryCond(Cond cond1, Operator operator, Cond cond2, Location loc) {
         super(loc);
         this.cond1 = cond1;
         this.operator = operator;
         this.cond2 = cond2;
     }
 
-    public Expr getLeftCond() {
+    public Cond getLeftCond() {
         return cond1;
     }
 
@@ -21,7 +21,7 @@ public class BinaryCond extends Cond {
         return operator;
     }
     
-    public Expr getRightCond() {
+    public Cond getRightCond() {
         return cond2;
     }
 
