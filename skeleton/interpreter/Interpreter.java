@@ -182,19 +182,47 @@ public class Interpreter {
     }
 
     boolean evaluateCond(Cond cond, Map<String, Long> variablesMap){
-            switch(cond.getOperator()){
-                case Cond.Operator.LE: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) <= evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
-                case Cond.Operator.GE: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) >= evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
-                case Cond.Operator.EQ: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) == evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
-                case Cond.Operator.NE: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) != evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
-                case Cond.Operator.LT: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) < evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
-                case Cond.Operator.GT: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) > evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
+            // switch(cond.getOperator()){
+            //     case Cond.LE: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) <= evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
+            //     case Cond.GE: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) >= evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
+            //     case Cond.EQ: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) == evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
+            //     case Cond.NE: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) != evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
+            //     case Cond.LT: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) < evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
+            //     case Cond.GT: return evaluateExpr(((RelationalCond)cond).getLeftExpr(),variablesMap) > evaluateExpr(((RelationalCond)cond).getRightExpr(),variablesMap);
 
-                case Cond.Operator.AND: return evaluateCond(((BinaryCond)cond).getLeftCond(),variablesMap) && evaluateCond(((BinaryCond)cond).getRightCond(),variablesMap);
-                case Cond.Operator.OR: return evaluateCond(((BinaryCond)cond).getLeftCond(),variablesMap) || evaluateCond(((BinaryCond)cond).getRightCond(),variablesMap);
-                case Cond.Operator.NOT: return !(evaluateCond(((NegationCond)cond).getCond(),variablesMap));
+            //     case Cond.AND: return evaluateCond(((BinaryCond)cond).getLeftCond(),variablesMap) && evaluateCond(((BinaryCond)cond).getRightCond(),variablesMap);
+            //     case Cond.OR: return evaluateCond(((BinaryCond)cond).getLeftCond(),variablesMap) || evaluateCond(((BinaryCond)cond).getRightCond(),variablesMap);
+            //     case Cond.NOT: return !(evaluateCond(((NegationCond)cond).getCond(),variablesMap));
 
-                default: throw new RuntimeException("Unhandled operator");
+            //     default: throw new RuntimeException("Unhandled operator");
+            // }
+            if(cond instanceof RelationalCond) {
+                RelationalCond relCond = (RelationalCond) cond;
+                long leftExpr = (Long) evaluateExpr(relCond.getLeftExpr(), variablesMap);
+                long rightExpr = (Long) evaluateExpr(relCond.getRightExpr(), variablesMap);
+                switch (relCond.getOperator()) {
+                    case LE: return leftExpr <= rightExpr;
+                    case GE: return leftExpr >= rightExpr;
+                    case EQ: return leftExpr == rightExpr;
+                    case NE: return leftExpr != rightExpr;
+                    case LT: return leftExpr < rightExpr;
+                    case GT: return leftExpr > rightExpr;
+                    default: throw new RuntimeException("Unhandled relational condition operator");
+                }
+
+            } else if (cond instanceof BinaryCond) {
+                BinaryCond binCond = (BinaryCond) cond;
+                boolean leftCond = evaluateCond(binCond.getLeftCond(), variablesMap);
+                boolean rightCond = evaluateCond(binCond.getRightCond(), variablesMap);
+                switch (binCond.getOperator()) {
+                    case AND: return leftCond && rightCond;
+                    case OR: return leftCond || rightCond;
+                    default: throw new RuntimeException("Unhandled binary condition operator");
+                }
+            } else if (cond instanceof NegationCond) {
+                return !(evaluateCond(((NegationCond)cond).getCond(),variablesMap));
+            } else {
+                throw new RuntimeException("Unhandled condition type");
             }
     }
 
