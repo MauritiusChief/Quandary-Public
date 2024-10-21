@@ -156,6 +156,8 @@ expr ::= INTCONST:c
          {: RESULT = e; :}
       |  IDENT:s
          {: RESULT = new IdentExpr(s,loc(sleft,sright)); :}
+      |  IDENT:s LPAREN exprList:el RPAREN
+         {: RESULT = new CallExpr(new IdentExpr(s,loc(sleft,sright)),el,loc(sleft,sright)); :}
       ;
 
 binaryExpr ::= expr:e1 PLUS expr:e2
