@@ -25,6 +25,9 @@ public class NeExprList extends ASTNode {
 
     @Override
     public String toString() {
+        if (neExprList == null){
+            return expr.toString();
+        }
         return neExprList.toString();
     }
 }

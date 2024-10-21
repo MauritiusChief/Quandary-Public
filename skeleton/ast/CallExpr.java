@@ -10,7 +10,7 @@ public class CallExpr extends Expr
         this.id = id;
         this.exprList = exprList;
     }
-    public IdentExpr getId(){
+    public IdentExpr getIdent(){
         return id;
     }
     public ExprList getExprList(){

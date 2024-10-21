@@ -1,539 +1,537 @@
 javac -cp /home/abced/cup/java-cup-11b.jar:. */*.java
 Testing  isrefint.q 42, worth 0 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  factsimple.q 10, worth 1 points: FAILED
 REF_OUT is Interpreter returned 3628800 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  factsimple.q 20, worth 1 points: FAILED
 REF_OUT is Interpreter returned 2432902008176640000 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  lg.q 13, worth 1 points: FAILED
 REF_OUT is Interpreter returned 3 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  lg.q 75398, worth 1 points: FAILED
 REF_OUT is Interpreter returned 16 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  oddeven.q 22, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  oddeven.q 59, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  assignStmt.q 10, worth 1 points: FAILED
 REF_OUT is Interpreter returned 15137 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  ifelse.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 65651 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  cj-fn-no-args.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 918734138 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  cj-is-odd.q 564, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  fibSimple.q 20, worth 1 points: FAILED
 REF_OUT is Interpreter returned 6765 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  recurmain2.q 20, worth 1 points: FAILED
 REF_OUT is Interpreter returned 2432902008176640000 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  isPrimeImmutable.q 283, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  isPrimeImmutable.q 287, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
-Testing  uncalled.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 3341 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  uncalled.q 42, worth 1 points: PASSED
 Testing  mpot.q 354, worth 1 points: FAILED
 REF_OUT is Interpreter returned 98 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  perfect.q 28, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  perfect.q 32, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  isEven.q 172, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  hope.q 10, worth 1 points: FAILED
 REF_OUT is Interpreter returned 538 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sDigitSum.q 927, worth 1 points: FAILED
 REF_OUT is Interpreter returned 18 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sPalindrome.q 11211, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sPalindrome.q 12345, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sSum.q 153, worth 1 points: FAILED
 REF_OUT is Interpreter returned 11781 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sSimpleMain.q 10, worth 1 points: FAILED
 REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sminTiles.q 5, worth 1 points: FAILED
 REF_OUT is Interpreter returned 9 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sminTilesv2.q 5, worth 1 points: FAILED
 REF_OUT is Interpreter returned 14 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sCountPow.q 100, worth 1 points: FAILED
 REF_OUT is Interpreter returned 3 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sDeciToBin.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 101010 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sNoCalls.q 2, worth 1 points: FAILED
 REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  params.q -2, worth 1 points: FAILED
 REF_OUT is Interpreter returned -2 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  params.q 12, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  params2.q 93, worth 1 points: FAILED
 REF_OUT is Interpreter returned 8 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  ident.q 1, worth 1 points: PASSED
 Testing  ident2.q 5, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  assignStmt.q 73, worth 1 points: FAILED
 REF_OUT is Interpreter returned 15074 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  ifelse.q 92, worth 1 points: FAILED
 REF_OUT is Interpreter returned 65651 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  ifstmt.q 3, worth 1 points: FAILED
 REF_OUT is Interpreter returned 65484 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  fibSimple.q 5, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  randomNum.q 10000, worth 1 points: FAILED
 REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  randomNum.q 1, worth 1 points: FAILED
 REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fn-no-args.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 918734138 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  cj-fn-args.q 123, worth 1 points: FAILED
 REF_OUT is Interpreter returned 247 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fn-args.q 456, worth 1 points: FAILED
 REF_OUT is Interpreter returned 913 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-is-odd.q 0, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-is-odd.q 1, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-is-odd.q 57, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-is-odd.q 54, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 0, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 1, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 2, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 3, worth 1 points: FAILED
 REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 4, worth 1 points: FAILED
 REF_OUT is Interpreter returned 3 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 5, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 6, worth 1 points: FAILED
 REF_OUT is Interpreter returned 8 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 7, worth 1 points: FAILED
 REF_OUT is Interpreter returned 13 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 8, worth 1 points: FAILED
 REF_OUT is Interpreter returned 21 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 20, worth 1 points: FAILED
 REF_OUT is Interpreter returned 6765 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  fermatLittleInverse.q 6, worth 2 points: FAILED
 REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  mersennePrime.q 87, worth 2 points: FAILED
 REF_OUT is Interpreter returned 31 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  euclidLemma.q 35, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  legendre.q 20, worth 2 points: FAILED
 REF_OUT is Interpreter returned 8 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  gcdFactorial.q 5, worth 2 points: FAILED
 REF_OUT is Interpreter returned 120 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  padovanSequence.q 12, worth 2 points: FAILED
 REF_OUT is Interpreter returned 21 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  newmanConwaySequence.q 15, worth 2 points: FAILED
 REF_OUT is Interpreter returned 8 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  binomial.q 13, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1287 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  smithNum.q 265, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  messyFunc.q 3, worth 2 points: FAILED
 REF_OUT is Interpreter returned -1698 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sminTilesv2.q 10, worth 2 points: FAILED
 REF_OUT is Interpreter returned 18 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sNoCalls.q 15, worth 2 points: FAILED
 REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  randomNum.q 2, worth 2 points: FAILED
 REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  hope2.q 7, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  oddeven.q 32, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  recurmain.q 1, worth 2 points: FAILED
 REF_OUT is Interpreter returned 17179869184 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sDigitSum.q 73098, worth 2 points: FAILED
 REF_OUT is Interpreter returned 27 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sDeciToBin.q 63, worth 2 points: FAILED
 REF_OUT is Interpreter returned 111111 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  fibSimple.q 20, worth 2 points: FAILED
 REF_OUT is Interpreter returned 6765 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  printstuff2.q 10, worth 2 points: FAILED
 REF_OUT is Interpreter returned 10 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  samename.q 25, worth 2 points: FAILED
 REF_OUT is Interpreter returned 625 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  prodigy.q 35, worth 2 points: FAILED
 REF_OUT is Interpreter returned 630 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sqroot.q 500, worth 2 points: FAILED
 REF_OUT is Interpreter returned 22 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sub.q 123, worth 2 points: FAILED
 REF_OUT is Interpreter returned 81 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  simplecall.q 5, worth 2 points: FAILED
 REF_OUT is Interpreter returned 25 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  simplecall2.q 5, worth 2 points: FAILED
 REF_OUT is Interpreter returned 125 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  pow.q 9, worth 2 points: FAILED
 REF_OUT is Interpreter returned 40353607 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  pow2.q 9, worth 2 points: FAILED
 REF_OUT is Interpreter returned 40353607 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fn-no-args.q 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned 918734138 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  cj-is-odd.q 13, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  isPrimeImmutable.q 177, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  factsimple.q 15, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1307674368000 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  oddeven.q 13, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  lg.q 24645, worth 2 points: FAILED
 REF_OUT is Interpreter returned 14 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sPalindrome.q 15951, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  randomNum3.q 2, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  precedence3.q 42, worth 1 points: PASSED
 Testing  cj-fib.q 8, worth 2 points: FAILED
 REF_OUT is Interpreter returned 21 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sub.q 23, worth 2 points: FAILED
 REF_OUT is Interpreter returned -19 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sqroot.q 5000, worth 2 points: FAILED
 REF_OUT is Interpreter returned 70 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  samename.q 25, worth 1 points: FAILED
 REF_OUT is Interpreter returned 625 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  messyFunc.q 100, worth 1 points: FAILED
 REF_OUT is Interpreter returned -1224138400 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  params.q -2, worth 1 points: FAILED
 REF_OUT is Interpreter returned -2 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  params.q 12, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  params2.q 93, worth 1 points: FAILED
 REF_OUT is Interpreter returned 8 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  ident2.q 5, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  assignStmt.q 73, worth 1 points: FAILED
 REF_OUT is Interpreter returned 15074 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  ifelse.q 92, worth 1 points: FAILED
 REF_OUT is Interpreter returned 65651 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  ifstmt.q 3, worth 1 points: FAILED
 REF_OUT is Interpreter returned 65484 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  fibSimple.q 5, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  randomNum.q 10000, worth 1 points: FAILED
 REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  randomNum.q 1, worth 1 points: FAILED
 REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  badif.q 39, worth 1 points: PASSED
 Testing  badif2.q 9, worth 1 points: PASSED
 Testing  badident.q 29, worth 1 points: PASSED
 Testing  badident2.q 19, worth 1 points: PASSED
 Testing  cj-fn-no-args.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 918734138 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  cj-fn-args.q 123, worth 1 points: FAILED
 REF_OUT is Interpreter returned 247 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fn-args.q 456, worth 1 points: FAILED
 REF_OUT is Interpreter returned 913 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-is-odd.q 0, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-is-odd.q 1, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-is-odd.q 57, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-is-odd.q 54, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 0, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 1, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 2, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 3, worth 1 points: FAILED
 REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 4, worth 1 points: FAILED
 REF_OUT is Interpreter returned 3 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 5, worth 1 points: FAILED
 REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 6, worth 1 points: FAILED
 REF_OUT is Interpreter returned 8 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 7, worth 1 points: FAILED
 REF_OUT is Interpreter returned 13 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 8, worth 1 points: FAILED
 REF_OUT is Interpreter returned 21 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  cj-fib.q 20, worth 1 points: FAILED
 REF_OUT is Interpreter returned 6765 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  recurmain.q 3, worth 2 points: FAILED
 REF_OUT is Interpreter returned 12884901888 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  recurmain2.q 5, worth 2 points: FAILED
 REF_OUT is Interpreter returned 120 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  randomNum.q 10, worth 2 points: FAILED
 REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  hope3.q 5, worth 2 points: FAILED
 REF_OUT is Interpreter returned 24 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  simplecall.q 12, worth 2 points: FAILED
 REF_OUT is Interpreter returned 144 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  simplecall2.q 12, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1728 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  simplecall3.q 12, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1872 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  modfive.q 132, worth 2 points: FAILED
 REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  count.q 15, worth 2 points: FAILED
 REF_OUT is Interpreter returned 15 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  count2.q 15, worth 2 points: FAILED
 REF_OUT is Interpreter returned 60 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  series.q 50, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1275 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  factsimple.q 13, worth 2 points: FAILED
 REF_OUT is Interpreter returned 6227020800 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  lg.q 673, worth 2 points: FAILED
 REF_OUT is Interpreter returned 9 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  oddeven.q 35, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  assignStmt.q 20, worth 2 points: FAILED
 REF_OUT is Interpreter returned 15127 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  fibSimple.q 18, worth 2 points: FAILED
 REF_OUT is Interpreter returned 2584 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  fibHybrid.q 50, worth 2 points: FAILED
 REF_OUT is Interpreter returned 12586269025 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  isPrimeImmutable.q 83, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  isPrimeImmutable.q 87, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  isEven.q 45, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sPalindrome.q 3341, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sPalindrome.q 3443, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  ident2.q 100, worth 2 points: FAILED
 REF_OUT is Interpreter returned 100 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  sDeciToBin.q 31, worth 2 points: FAILED
 REF_OUT is Interpreter returned 11111 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  binomial.q 14, worth 2 points: FAILED
 REF_OUT is Interpreter returned 3003 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  simplecall.q 4, worth 2 points: FAILED
 REF_OUT is Interpreter returned 16 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-built-in.q 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-recursive-main.q 42, worth 2 points: FAILED
 REF_OUT is Interpreter returned 903 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-pow.q 3, worth 2 points: FAILED
 REF_OUT is Interpreter returned 27 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-pow.q 20, worth 2 points: FAILED
 REF_OUT is Interpreter returned 3486784401 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-topbit.q 65535, worth 2 points: FAILED
 REF_OUT is Interpreter returned 16 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-topbit.q 65536, worth 2 points: FAILED
 REF_OUT is Interpreter returned 17 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-testbit.q 3, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-testbit.q 25, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-div2.q 14, worth 2 points: FAILED
 REF_OUT is Interpreter returned 7 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-div2.q 377777777, worth 2 points: FAILED
 REF_OUT is Interpreter returned 188888888 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-dec2bin.q 21930, worth 2 points: FAILED
 REF_OUT is Interpreter returned 101010110101010 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-dec2bin.q 54321, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1101010000110001 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-built-in-contract.q 6, worth 2 points: FAILED
 REF_OUT is Interpreter returned 63 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-binarypow.q 12, worth 2 points: FAILED
 REF_OUT is Interpreter returned 535537 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  swc-binarypow.q 23, worth 2 points: FAILED
 REF_OUT is Interpreter returned 94151567435 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  oddeven.q 1234, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  oddeven.q 4321, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  mersennePrime.q 133, worth 2 points: FAILED
 REF_OUT is Interpreter returned 127 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  fibHybrid.q 55, worth 2 points: FAILED
 REF_OUT is Interpreter returned 139583862445 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sPalindrome.q 12345, worth 2 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  sPalindrome.q 12321, worth 2 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  count2.q 16, worth 2 points: FAILED
 REF_OUT is Interpreter returned 67 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  factsimple.q 6, worth 2 points: FAILED
 REF_OUT is Interpreter returned 720 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  assignStmt.q 20, worth 2 points: FAILED
 REF_OUT is Interpreter returned 15127 Quandary process returned 0
-SUB_OUT is Illegal character <,> Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
 Testing  isrefint.q 42, worth 0 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:81) Quandary process returned 1
-Total score: 6 out of 269
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Total score: 7 out of 269

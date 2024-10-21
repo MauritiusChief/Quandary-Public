@@ -6,6 +6,7 @@ import java.util.Random;
 import parser.ParserWrapper;
 import ast.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ public class Interpreter {
     public static final int EXIT_DATA_RACE_ERROR = 6;
     public static final int EXIT_NONDETERMINISM_ERROR = 7;
     private static boolean returnFlag = false;
+    private static HashMap<String, FuncDef> function = new HashMap<String, FuncDef>();
 
     static private Interpreter interpreter;
 
@@ -110,25 +112,36 @@ public class Interpreter {
     }
 
     Object evaluateFuncDefList(FuncDefList funcDefList, long arg) {
+        ArrayList<Long> args = new ArrayList<>();
+        args.add(arg);
         FuncDef mainFunc = funcDefList.getFuncDef();
         String id = funcDefList.getFuncDef().getVarDecl().getIdent().getIdentStr();
         // System.out.println(id);
         if (id.equals("main")) {
             mainFunc = funcDefList.getFuncDef();
+        }
+        function.put(id, funcDefList.getFuncDef());
+        while (funcDefList.getFuncDefList() != null) {
+            funcDefList = funcDefList.getFuncDefList();
+            id = funcDefList.getFuncDef().getVarDecl().getIdent().getIdentStr();
+            //System.out.println(id);
+            if (id.equals("main")) {
+                mainFunc = funcDefList.getFuncDef();
+            }
+            function.put(id, funcDefList.getFuncDef());
+        }
+
+        if (mainFunc.getVarDecl().getIdent().getIdentStr().equals("main")) {
             Map<String, Long> variablesMap = new HashMap<>();
-            // Object result = interpreter.evaluateFuncDef(mainFunc, arg, variablesMap);
-            // if (result == null) {
-            //     throw new NullPointerException("evaluateFuncDef returned null");
-            // }
-            return evaluateFuncDef(mainFunc, arg, variablesMap);
+            return evaluateFuncDef(mainFunc, args, variablesMap);
         } else {
             throw new RuntimeException("no main method");
         }
     }
 
-    Long evaluateFuncDef(FuncDef funcDef, long arg, Map<String, Long> variablesMap) {
+    Long evaluateFuncDef(FuncDef funcDef, ArrayList<Long> args, Map<String, Long> variablesMap) {
         if (funcDef.getFormalDeclList() != null) {
-            evaluateFormalDeclList(funcDef.getFormalDeclList(), arg, variablesMap);
+            evaluateFormalDeclList(funcDef.getFormalDeclList(), args, variablesMap);
         }
         // Object result = interpreter.evaluateStmtList(funcDef.getStmtList(), variablesMap);
         // if (result == null) {
@@ -157,28 +170,34 @@ public class Interpreter {
         return stmt;
     }
 
-    void evaluateFormalDeclList(FormalDeclList formalDeclList, long arg, Map<String, Long> variablesMap){
-        evaluateNeFormalDeclList(formalDeclList.getNeFormalDeclList(), arg, variablesMap);
+    void evaluateFormalDeclList(FormalDeclList formalDeclList, ArrayList<Long> args, Map<String, Long> variablesMap){
+        evaluateNeFormalDeclList(formalDeclList.getNeFormalDeclList(), args, variablesMap);
     }
 
-    void evaluateNeFormalDeclList(NeFormalDeclList neFormalDeclList, long arg, Map<String, Long> variablesMap){
-        variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), arg);
+    void evaluateNeFormalDeclList(NeFormalDeclList neFormalDeclList, ArrayList<Long> args, Map<String, Long> variablesMap){
+        int i = 0;
+        variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), args.get(i));
+        while (neFormalDeclList.getNeFormalDeclList() != null){
+            neFormalDeclList = neFormalDeclList.getNeFormalDeclList();
+            i++;
+            variablesMap.put(neFormalDeclList.getVarDecl().getIdent().getIdentStr(), args.get(i));
+        }
     }
 
-    Long evaluateExprList(ExprList exprList, long arg, Map<String, Long> variablesMap) {
-        Long value = evaluateNeExprList(exprList.getNeExprList(), arg, variablesMap);
+    Long evaluateExprList(ExprList exprList, ArrayList<Long> args, Map<String, Long> variablesMap) {
+        Long value = evaluateNeExprList(exprList.getNeExprList(), args, variablesMap);
         if (exprList.getNeExprList() != null){
-            return evaluateNeExprList(exprList.getNeExprList(), arg, variablesMap);   
+            return evaluateNeExprList(exprList.getNeExprList(), args, variablesMap);   
         }
         return value;
     }
 
-    Long evaluateNeExprList(NeExprList neExprList, Long arg, Map<String, Long> variablesMap){
-        Long exprValue = evaluateExpr(neExprList.getExpr(),variablesMap);
-        // if (neExprList.getNeExprList() != null) {
-        //     return evaluateNeExprList(neExprList.getNeExprList(), arg, variablesMap);
-        // }
-        return exprValue; 
+    Long evaluateNeExprList(NeExprList neExprList, ArrayList<Long> args, Map<String, Long> variablesMap){
+        Long exprValueFirst = evaluateExpr(neExprList.getExpr(),variablesMap);
+        if (neExprList.getNeExprList() != null) {
+            return evaluateNeExprList(neExprList.getNeExprList(), args, variablesMap);
+        }
+        return exprValueFirst; 
     }
 
     boolean evaluateCond(Cond cond, Map<String, Long> variablesMap){
@@ -296,6 +315,26 @@ public class Interpreter {
         } else if(expr instanceof IdentExpr){        
             IdentExpr identExpr = (IdentExpr)expr;
             return variablesMap.get(identExpr.getIdentStr());
+        } else if(expr instanceof CallExpr){
+            ArrayList<Long> args = new ArrayList<>();
+            Map<String, Long> tempMap = new HashMap<>(variablesMap);
+
+            NeExprList neExprList = ((CallExpr)expr).getExprList().getNeExprList();
+            if (neExprList == null) {
+                throw new IllegalStateException("neExprList is null in CallExpr");
+            }
+            args.add((long)evaluateExpr(neExprList.getExpr(), variablesMap));
+            while (neExprList.getNeExprList() != null) {
+                neExprList = neExprList.getNeExprList();
+                args.add((long)evaluateExpr(neExprList.getExpr(), variablesMap));
+            }
+            FuncDef funcDef = function.get(((CallExpr)expr).getIdent().getIdentStr());
+            if (funcDef == null) {
+                throw new IllegalStateException("Function definition not found for: " + ((CallExpr)expr).getIdent().getIdentStr());
+            }
+            Long result = evaluateFuncDef(funcDef, args, tempMap);
+            returnFlag = false;
+            return result;
         } else {
             throw new RuntimeException("Unhandled Expr type");
         }
