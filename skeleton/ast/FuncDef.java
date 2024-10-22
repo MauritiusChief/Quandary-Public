@@ -26,6 +26,9 @@ public class FuncDef extends ASTNode {
 
     @Override
     public String toString() {
+        if (formalDeclList == null){
+            return varDecl.getIdent().getIdentStr() + "()" + "{" + stmtList.toString()+"}" ;
+        }
         return varDecl.getIdent().getIdentStr() + "(" + formalDeclList.toString()+")"+"{"+stmtList.toString()+"}";
     }
 }

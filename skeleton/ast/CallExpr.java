@@ -18,6 +18,9 @@ public class CallExpr extends Expr
     }
     @Override
     public String toString(){
+        if (exprList == null){
+            return id.toString() + "()";
+        }
         return id.toString() + "(" + exprList.toString() + ")";
     }
     

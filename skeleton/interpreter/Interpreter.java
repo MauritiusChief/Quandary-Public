@@ -317,21 +317,33 @@ public class Interpreter {
             return variablesMap.get(identExpr.getIdentStr());
         } else if(expr instanceof CallExpr){
             ArrayList<Long> args = new ArrayList<>();
-            Map<String, Long> tempMap = new HashMap<>(variablesMap);
-
-            NeExprList neExprList = ((CallExpr)expr).getExprList().getNeExprList();
-            if (neExprList == null) {
-                throw new IllegalStateException("neExprList is null in CallExpr");
-            }
-            args.add((long)evaluateExpr(neExprList.getExpr(), variablesMap));
-            while (neExprList.getNeExprList() != null) {
-                neExprList = neExprList.getNeExprList();
+            // if (expr == null) {
+            //     throw new IllegalStateException("expr is null in CallExpr");
+            // }
+            ExprList exprList = ((CallExpr)expr).getExprList();
+            // if (exprList == null) {
+            //     throw new IllegalStateException("exprList is null in CallExpr");
+            // }
+            if (exprList != null) {
+                NeExprList neExprList = exprList.getNeExprList();
+                // if (neExprList == null) {
+                //     throw new IllegalStateException("neExprList is null in CallExpr");
+                // }
                 args.add((long)evaluateExpr(neExprList.getExpr(), variablesMap));
+                while (neExprList.getNeExprList() != null) {
+                    neExprList = neExprList.getNeExprList();
+                    args.add((long)evaluateExpr(neExprList.getExpr(), variablesMap));
+                }
+            }
+            if (((CallExpr)expr).getIdent().getIdentStr().equals("randomInt")) {
+                Random random = new Random();
+                return (long)random.nextInt((args.get(0)).intValue());
             }
             FuncDef funcDef = function.get(((CallExpr)expr).getIdent().getIdentStr());
             if (funcDef == null) {
                 throw new IllegalStateException("Function definition not found for: " + ((CallExpr)expr).getIdent().getIdentStr());
             }
+            Map<String, Long> tempMap = new HashMap<>(variablesMap);
             Long result = evaluateFuncDef(funcDef, args, tempMap);
             returnFlag = false;
             return result;
