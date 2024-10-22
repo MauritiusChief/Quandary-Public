@@ -1,22 +1,16 @@
 javac -cp /home/abced/cup/java-cup-11b.jar:. */*.java
 Testing  isrefint.q 42, worth 0 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
 Testing  factsimple.q 10, worth 1 points: PASSED
 Testing  factsimple.q 20, worth 1 points: PASSED
 Testing  lg.q 13, worth 1 points: PASSED
 Testing  lg.q 75398, worth 1 points: PASSED
 Testing  oddeven.q 22, worth 1 points: PASSED
 Testing  oddeven.q 59, worth 1 points: PASSED
-Testing  assignStmt.q 10, worth 1 points: FAILED
-REF_OUT is Interpreter returned 15137 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  ifelse.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 65651 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  cj-fn-no-args.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 918734138 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  assignStmt.q 10, worth 1 points: PASSED
+Testing  ifelse.q 42, worth 1 points: PASSED
+Testing  cj-fn-no-args.q 42, worth 1 points: PASSED
 Testing  cj-is-odd.q 564, worth 1 points: PASSED
 Testing  fibSimple.q 20, worth 1 points: PASSED
 Testing  recurmain2.q 20, worth 1 points: PASSED
@@ -27,9 +21,7 @@ Testing  mpot.q 354, worth 1 points: PASSED
 Testing  perfect.q 28, worth 1 points: PASSED
 Testing  perfect.q 32, worth 1 points: PASSED
 Testing  isEven.q 172, worth 1 points: PASSED
-Testing  hope.q 10, worth 1 points: FAILED
-REF_OUT is Interpreter returned 538 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  hope.q 10, worth 1 points: PASSED
 Testing  sDigitSum.q 927, worth 1 points: PASSED
 Testing  sPalindrome.q 11211, worth 1 points: PASSED
 Testing  sPalindrome.q 12345, worth 1 points: PASSED
@@ -40,38 +32,18 @@ Testing  sminTilesv2.q 5, worth 1 points: PASSED
 Testing  sCountPow.q 100, worth 1 points: PASSED
 Testing  sDeciToBin.q 42, worth 1 points: PASSED
 Testing  sNoCalls.q 2, worth 1 points: PASSED
-Testing  params.q -2, worth 1 points: FAILED
-REF_OUT is Interpreter returned -2 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  params.q 12, worth 1 points: FAILED
-REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  params2.q 93, worth 1 points: FAILED
-REF_OUT is Interpreter returned 8 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  params.q -2, worth 1 points: PASSED
+Testing  params.q 12, worth 1 points: PASSED
+Testing  params2.q 93, worth 1 points: PASSED
 Testing  ident.q 1, worth 1 points: PASSED
-Testing  ident2.q 5, worth 1 points: FAILED
-REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  assignStmt.q 73, worth 1 points: FAILED
-REF_OUT is Interpreter returned 15074 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  ifelse.q 92, worth 1 points: FAILED
-REF_OUT is Interpreter returned 65651 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  ifstmt.q 3, worth 1 points: FAILED
-REF_OUT is Interpreter returned 65484 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  ident2.q 5, worth 1 points: PASSED
+Testing  assignStmt.q 73, worth 1 points: PASSED
+Testing  ifelse.q 92, worth 1 points: PASSED
+Testing  ifstmt.q 3, worth 1 points: PASSED
 Testing  fibSimple.q 5, worth 1 points: PASSED
-Testing  randomNum.q 10000, worth 1 points: FAILED
-REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing  randomNum.q 1, worth 1 points: FAILED
-REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing  cj-fn-no-args.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 918734138 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  randomNum.q 10000, worth 1 points: PASSED
+Testing  randomNum.q 1, worth 1 points: PASSED
+Testing  cj-fn-no-args.q 42, worth 1 points: PASSED
 Testing  cj-fn-args.q 123, worth 1 points: PASSED
 Testing  cj-fn-args.q 456, worth 1 points: PASSED
 Testing  cj-is-odd.q 0, worth 1 points: PASSED
@@ -100,12 +72,8 @@ Testing  smithNum.q 265, worth 2 points: PASSED
 Testing  messyFunc.q 3, worth 2 points: PASSED
 Testing  sminTilesv2.q 10, worth 2 points: PASSED
 Testing  sNoCalls.q 15, worth 2 points: PASSED
-Testing  randomNum.q 2, worth 2 points: FAILED
-REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing  hope2.q 7, worth 2 points: FAILED
-REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  randomNum.q 2, worth 2 points: PASSED
+Testing  hope2.q 7, worth 2 points: PASSED
 Testing  oddeven.q 32, worth 2 points: PASSED
 Testing  recurmain.q 1, worth 2 points: PASSED
 Testing  sDigitSum.q 73098, worth 2 points: PASSED
@@ -120,59 +88,35 @@ Testing  simplecall.q 5, worth 2 points: PASSED
 Testing  simplecall2.q 5, worth 2 points: PASSED
 Testing  pow.q 9, worth 2 points: PASSED
 Testing  pow2.q 9, worth 2 points: PASSED
-Testing  cj-fn-no-args.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 918734138 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  cj-fn-no-args.q 42, worth 2 points: PASSED
 Testing  cj-is-odd.q 13, worth 2 points: PASSED
 Testing  isPrimeImmutable.q 177, worth 2 points: PASSED
 Testing  factsimple.q 15, worth 2 points: PASSED
 Testing  oddeven.q 13, worth 2 points: PASSED
 Testing  lg.q 24645, worth 2 points: PASSED
 Testing  sPalindrome.q 15951, worth 2 points: PASSED
-Testing  randomNum3.q 2, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  randomNum3.q 2, worth 1 points: PASSED
 Testing  precedence3.q 42, worth 1 points: PASSED
 Testing  cj-fib.q 8, worth 2 points: PASSED
 Testing  sub.q 23, worth 2 points: PASSED
 Testing  sqroot.q 5000, worth 2 points: PASSED
 Testing  samename.q 25, worth 1 points: PASSED
 Testing  messyFunc.q 100, worth 1 points: PASSED
-Testing  params.q -2, worth 1 points: FAILED
-REF_OUT is Interpreter returned -2 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  params.q 12, worth 1 points: FAILED
-REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  params2.q 93, worth 1 points: FAILED
-REF_OUT is Interpreter returned 8 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing  ident2.q 5, worth 1 points: FAILED
-REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  assignStmt.q 73, worth 1 points: FAILED
-REF_OUT is Interpreter returned 15074 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  ifelse.q 92, worth 1 points: FAILED
-REF_OUT is Interpreter returned 65651 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Testing  ifstmt.q 3, worth 1 points: FAILED
-REF_OUT is Interpreter returned 65484 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  params.q -2, worth 1 points: PASSED
+Testing  params.q 12, worth 1 points: PASSED
+Testing  params2.q 93, worth 1 points: PASSED
+Testing  ident2.q 5, worth 1 points: PASSED
+Testing  assignStmt.q 73, worth 1 points: PASSED
+Testing  ifelse.q 92, worth 1 points: PASSED
+Testing  ifstmt.q 3, worth 1 points: PASSED
 Testing  fibSimple.q 5, worth 1 points: PASSED
-Testing  randomNum.q 10000, worth 1 points: FAILED
-REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing  randomNum.q 1, worth 1 points: FAILED
-REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  randomNum.q 10000, worth 1 points: PASSED
+Testing  randomNum.q 1, worth 1 points: PASSED
 Testing  badif.q 39, worth 1 points: PASSED
 Testing  badif2.q 9, worth 1 points: PASSED
 Testing  badident.q 29, worth 1 points: PASSED
 Testing  badident2.q 19, worth 1 points: PASSED
-Testing  cj-fn-no-args.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 918734138 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  cj-fn-no-args.q 42, worth 1 points: PASSED
 Testing  cj-fn-args.q 123, worth 1 points: PASSED
 Testing  cj-fn-args.q 456, worth 1 points: PASSED
 Testing  cj-is-odd.q 0, worth 1 points: PASSED
@@ -191,12 +135,8 @@ Testing  cj-fib.q 8, worth 1 points: PASSED
 Testing  cj-fib.q 20, worth 1 points: PASSED
 Testing  recurmain.q 3, worth 2 points: PASSED
 Testing  recurmain2.q 5, worth 2 points: PASSED
-Testing  randomNum.q 10, worth 2 points: FAILED
-REF_OUT is Interpreter returned -1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing  hope3.q 5, worth 2 points: FAILED
-REF_OUT is Interpreter returned 24 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  randomNum.q 10, worth 2 points: PASSED
+Testing  hope3.q 5, worth 2 points: PASSED
 Testing  simplecall.q 12, worth 2 points: PASSED
 Testing  simplecall2.q 12, worth 2 points: PASSED
 Testing  simplecall3.q 12, worth 2 points: PASSED
@@ -207,9 +147,7 @@ Testing  series.q 50, worth 2 points: PASSED
 Testing  factsimple.q 13, worth 2 points: PASSED
 Testing  lg.q 673, worth 2 points: PASSED
 Testing  oddeven.q 35, worth 2 points: PASSED
-Testing  assignStmt.q 20, worth 2 points: FAILED
-REF_OUT is Interpreter returned 15127 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  assignStmt.q 20, worth 2 points: PASSED
 Testing  fibSimple.q 18, worth 2 points: PASSED
 Testing  fibHybrid.q 50, worth 2 points: PASSED
 Testing  isPrimeImmutable.q 83, worth 2 points: PASSED
@@ -217,15 +155,11 @@ Testing  isPrimeImmutable.q 87, worth 2 points: PASSED
 Testing  isEven.q 45, worth 2 points: PASSED
 Testing  sPalindrome.q 3341, worth 2 points: PASSED
 Testing  sPalindrome.q 3443, worth 2 points: PASSED
-Testing  ident2.q 100, worth 2 points: FAILED
-REF_OUT is Interpreter returned 100 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  ident2.q 100, worth 2 points: PASSED
 Testing  sDeciToBin.q 31, worth 2 points: PASSED
 Testing  binomial.q 14, worth 2 points: PASSED
 Testing  simplecall.q 4, worth 2 points: PASSED
-Testing  swc-built-in.q 42, worth 2 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  swc-built-in.q 42, worth 2 points: PASSED
 Testing  swc-recursive-main.q 42, worth 2 points: PASSED
 Testing  swc-pow.q 3, worth 2 points: PASSED
 Testing  swc-pow.q 20, worth 2 points: PASSED
@@ -237,9 +171,7 @@ Testing  swc-div2.q 14, worth 2 points: PASSED
 Testing  swc-div2.q 377777777, worth 2 points: PASSED
 Testing  swc-dec2bin.q 21930, worth 2 points: PASSED
 Testing  swc-dec2bin.q 54321, worth 2 points: PASSED
-Testing  swc-built-in-contract.q 6, worth 2 points: FAILED
-REF_OUT is Interpreter returned 63 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing  swc-built-in-contract.q 6, worth 2 points: PASSED
 Testing  swc-binarypow.q 12, worth 2 points: PASSED
 Testing  swc-binarypow.q 23, worth 2 points: PASSED
 Testing  oddeven.q 1234, worth 2 points: PASSED
@@ -250,10 +182,8 @@ Testing  sPalindrome.q 12345, worth 2 points: PASSED
 Testing  sPalindrome.q 12321, worth 2 points: PASSED
 Testing  count2.q 16, worth 2 points: PASSED
 Testing  factsimple.q 6, worth 2 points: PASSED
-Testing  assignStmt.q 20, worth 2 points: FAILED
-REF_OUT is Interpreter returned 15127 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
+Testing  assignStmt.q 20, worth 2 points: PASSED
 Testing  isrefint.q 42, worth 0 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:83) Quandary process returned 1
-Total score: 224 out of 269
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Total score: 269 out of 269
