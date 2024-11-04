@@ -264,6 +264,18 @@ public class Interpreter {
             QdryVal value = evaluateExpr(printStmt.getExpr(), variablesMap);
             // System.out.println(value);
             return value;
+        } else if (stmt instanceof AssignStmt) {
+            variablesMap.put(((AssignStmt)stmt).getIdentStr(), evaluateExpr(((AssignStmt)stmt).getExpr(), variablesMap));
+            return new QdryInt(1);
+        } else if (stmt instanceof WhileStmt) {
+            QdryVal value = new QdryInt(0);
+            while (evaluateCond(((WhileStmt)stmt).getCond(), variablesMap)) {
+                value = evaluateStmt(((WhileStmt)stmt).getStmt(), variablesMap);
+                if (returnFlag) {
+                    break;
+                }
+            }
+            return value;
         } else if (stmt instanceof ReturnStmt) {
             ReturnStmt returnStmt = (ReturnStmt)stmt;
             QdryVal value = evaluateExpr(returnStmt.getExpr(),variablesMap);

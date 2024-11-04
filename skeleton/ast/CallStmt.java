@@ -2,26 +2,26 @@ package ast;
 
 public class CallStmt extends Stmt
 {
-    final String id;
+    final String ident;
     final ExprList exprList;
     
-    public  CallStmt(String id, ExprList exprList, Location loc){
+    public  CallStmt(String ident, ExprList exprList, Location loc){
         super(loc);
-        this.id = id;
+        this.ident = ident;
         this.exprList = exprList;
     }
-    public String getIdentStr(){
-        return id;
+    public String getIdentStr() {
+        return ident;
     }
-    public ExprList getExprList(){
+    public ExprList getExprList() {
         return exprList;
     }
     @Override
     public String toString(){
         if (exprList == null){
-            return id.toString() + "()";
+            return ident + "()";
         }
-        return id.toString() + "(" + exprList.toString() + ")";
+        return ident + "(" + exprList.toString() + ")";
     }
     
 }

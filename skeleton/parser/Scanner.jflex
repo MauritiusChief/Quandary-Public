@@ -86,6 +86,7 @@ Identifier = [_a-zA-Z] [_a-zA-Z0-9]*
 "Q"               { return symbol("Q",  Q); }
 "mutable"         { return symbol("mutable",  MUTABLE); }
 "nil"             { return symbol("nil", NIL); }
+"while"           { return symbol("whlie", WHILE); }
 
 "<="              { return symbol("<=",  LE); }
 ">="              { return symbol(">=",  GE); }
