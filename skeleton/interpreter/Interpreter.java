@@ -317,6 +317,7 @@ public class Interpreter {
                 case BinaryExpr.PLUS: return (Long)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap) + (Long)evaluateExpr(binaryExpr.getRightExpr(),variablesMap);
                 case BinaryExpr.MINUS: return (Long)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap) - (Long)evaluateExpr(binaryExpr.getRightExpr(),variablesMap);
                 case BinaryExpr.TIMES: return (Long)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap) * (Long)evaluateExpr(binaryExpr.getRightExpr(),variablesMap);
+                case BinaryExpr.DOT: return (Long)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap) * (Long)evaluateExpr(binaryExpr.getRightExpr(),variablesMap);
                 default: throw new RuntimeException("Unhandled Binary operator");
             }
         } else if (expr instanceof UnaryExpr) {
