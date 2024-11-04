@@ -598,3 +598,20 @@ SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process
 Testing -heapsize 1638400 facti.q 20, worth 1 points: FAILED
 REF_OUT is Interpreter returned 2432902008176640000 Quandary process returned 0
 SUB_OUT is Couldn't repair and continue parse (Symbol: <= (unknown:4/12(4) - unknown:4/13(12))) Quandary process returned 1
+Testing -heapsize 1638400 fibs.q 22, worth 1 points: FAILED
+REF_OUT is Interpreter returned (17711 . (10946 . (6765 . (4181 . (2584 . (1597 . (987 . (610 . (377 . (233 . (144 . (89 . (55 . (34 . (21 . (13 . (8 . (5 . (3 . (2 . (1 . (1 . (0 . nil))))))))))))))))))))))) Quandary process returned 0
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 simpleref.q 3341, worth 1 points: PASSED
+Testing -heapsize 1638400 islist.q 42, worth 1 points: FAILED
+REF_OUT is Interpreter returned (((1 . 0) . 0) . 1) Quandary process returned 0
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 nth.q 25, worth 1 points: FAILED
+REF_OUT is Interpreter returned 75025 Quandary process returned 0
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 tree.q 9, worth 1 points: FAILED
+REF_OUT is Interpreter returned 512 Quandary process returned 0
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 isrefint.q 42, worth 0 points: FAILED
+REF_OUT is Interpreter returned 1 Quandary process returned 0
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Total score: 33 out of 270
