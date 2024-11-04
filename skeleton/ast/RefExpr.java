@@ -1,17 +1,14 @@
 package ast;
 
-public class BinaryExpr extends Expr {
+public class RefExpr extends Expr {
 
-    public static final int PLUS = 1;
-    public static final int MINUS = 2;
-    public static final int TIMES = 3;
-    public static final int DOT = 4;
+    public static final int DOT = 1;
 
     final Expr expr1;
     final int operator;
     final Expr expr2;
 
-    public BinaryExpr(Expr expr1, int operator, Expr expr2, Location loc) {
+    public RefExpr(Expr expr1, int operator, Expr expr2, Location loc) {
         super(loc);
         this.expr1 = expr1;
         this.operator = operator;
@@ -34,10 +31,7 @@ public class BinaryExpr extends Expr {
     public String toString() {
         String s = null;
         switch (operator) {
-            case PLUS:  s = "+"; break;
-            case MINUS: s = "-"; break;
-            case TIMES: s = "*"; break;
-            case DOT: s = "."; break;
+            case DOT:  s = "."; break;
         }
         return "(" + expr1 + " " + s + " " + expr2 + ")";
     }

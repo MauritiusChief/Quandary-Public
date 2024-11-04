@@ -76,11 +76,15 @@ Identifier = [_a-zA-Z] [_a-zA-Z0-9]*
 "}"               { return symbol("}",  RBRACE); }
 "="                 {return symbol("=", EQUAL);}
 ","                 {return symbol(",", COMMA);}
+"."                 {return symbol(".", DOT);}
 
 "if"              { return symbol("if",  IF); }
 "else"            { return symbol("else",  ELSE); }
 "print"           { return symbol("print",  PRINT); }
 "int"             { return symbol("int",  INT); }
+"Ref"             { return symbol("Ref",  REF); }
+"Q"               { return symbol("Q",  Q); }
+"mutable"         { return symbol("mutable",  MUTABLE); }
 
 "<="              { return symbol("<=",  LE); }
 ">="              { return symbol(">=",  GE); }

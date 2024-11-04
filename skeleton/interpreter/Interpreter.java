@@ -22,7 +22,7 @@ public class Interpreter {
     public static final int EXIT_DATA_RACE_ERROR = 6;
     public static final int EXIT_NONDETERMINISM_ERROR = 7;
     private static boolean returnFlag = false;
-    private static HashMap<String, FuncDef> function = new HashMap<String, FuncDef>();
+    private static HashMap<String, FuncDef> functionMapping = new HashMap<String, FuncDef>();
 
     static private Interpreter interpreter;
 
@@ -120,7 +120,7 @@ public class Interpreter {
         if (id.equals("main")) {
             mainFunc = funcDefList.getFuncDef();
         }
-        function.put(id, funcDefList.getFuncDef());
+        functionMapping.put(id, funcDefList.getFuncDef());
         while (funcDefList.getFuncDefList() != null) {
             funcDefList = funcDefList.getFuncDefList();
             id = funcDefList.getFuncDef().getVarDecl().getIdent().getIdentStr();
@@ -128,7 +128,7 @@ public class Interpreter {
             if (id.equals("main")) {
                 mainFunc = funcDefList.getFuncDef();
             }
-            function.put(id, funcDefList.getFuncDef());
+            functionMapping.put(id, funcDefList.getFuncDef());
         }
 
         if (mainFunc.getVarDecl().getIdent().getIdentStr().equals("main")) {
@@ -289,6 +289,19 @@ public class Interpreter {
             Long value = evaluateStmtList(stmtBlock.getStmtList(), variablesMap);
             // System.out.println(value);
             return value;
+        } else if (stmt instanceof CallStmt) {
+            ArrayList<Expr> exprs = new ArrayList<>();
+            NeExprList neExprList = ((CallStmt)stmt).getExprList().getNeExprList();
+            while (neExprList.getNeExprList() != null) {
+                neExprList = neExprList.getNeExprList();
+                exprs.add(neExprList.getExpr());
+            }
+            String stmtIdent = ((CallStmt)stmt).getIdentStr();
+            switch (stmtIdent) {
+                case "setLeft": return (long) 0;
+                case "setRight": return (long) 0;
+                default: return (long) 0;
+            }
         } else {
             throw new RuntimeException("Unhandled Stmt type");
         }
@@ -339,7 +352,7 @@ public class Interpreter {
                 Random random = new Random();
                 return (long)random.nextInt((args.get(0)).intValue());
             }
-            FuncDef funcDef = function.get(((CallExpr)expr).getIdent().getIdentStr());
+            FuncDef funcDef = functionMapping.get(((CallExpr)expr).getIdent().getIdentStr());
             if (funcDef == null) {
                 throw new IllegalStateException("Function definition not found for: " + ((CallExpr)expr).getIdent().getIdentStr());
             }
