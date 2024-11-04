@@ -14,8 +14,8 @@ public class QdryRef extends QdryVal {
     @Override
     public String toString() {
         if (qrdyQ == null) {
-            return "testtestnilnil";
+            return "nil";
         }
-        return qrdyQ.toString();
+        return "("+qrdyQ.toString()+")";
     }
 }
