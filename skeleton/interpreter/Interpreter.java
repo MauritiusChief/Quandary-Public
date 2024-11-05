@@ -22,6 +22,7 @@ public class Interpreter {
     public static final int EXIT_DATA_RACE_ERROR = 6;
     public static final int EXIT_NONDETERMINISM_ERROR = 7;
     private static boolean returnFlag = false;
+    // Boolean[] returnFlag = {false};
     private static HashMap<String, FuncDef> functionMapping = new HashMap<String, FuncDef>();
 
     static private Interpreter interpreter;
@@ -133,6 +134,7 @@ public class Interpreter {
 
         if (mainFunc.getVarDecl().getIdent().getIdentStr().equals("main")) {
             Map<String, QdryVal> variablesMap = new HashMap<>();
+            // returnFlag[0] = false;
             return evaluateFuncDef(mainFunc, args, variablesMap);
         } else {
             throw new RuntimeException("no main method");
@@ -155,6 +157,7 @@ public class Interpreter {
         // if (stmt == null) {
         //     throw new NullPointerException("evaluateStmt returned null");
         // }
+        // if (returnFlag[0]) {
         if (returnFlag == true) {
             return stmt;
         }
@@ -162,8 +165,9 @@ public class Interpreter {
         {
             stmtList = stmtList.getStmtList();
             stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
-            
+
             if(returnFlag == true){
+            // if(returnFlag[0]){
                 break;
             }
         }
@@ -272,6 +276,7 @@ public class Interpreter {
             while (evaluateCond(((WhileStmt)stmt).getCond(), variablesMap)) {
                 value = evaluateStmt(((WhileStmt)stmt).getStmt(), variablesMap);
                 if (returnFlag) {
+                // if (returnFlag[0]) {
                     break;
                 }
             }
@@ -280,6 +285,7 @@ public class Interpreter {
             ReturnStmt returnStmt = (ReturnStmt)stmt;
             QdryVal value = evaluateExpr(returnStmt.getExpr(),variablesMap);
             returnFlag = true;
+            // returnFlag[0] = true;
             // System.out.println(value);
             return value;
         } else if (stmt instanceof StmtBlock) {
@@ -296,7 +302,8 @@ public class Interpreter {
             }
             String stmtIdent = ((CallStmt)stmt).getIdentStr();
             QdryRef ref = (QdryRef)evaluateExpr(((CallStmt)stmt).getExprList().getNeExprList().getExpr(), variablesMap);
-                QdryVal value = (QdryVal)evaluateExpr(((CallStmt)stmt).getExprList().getNeExprList().getNeExprList().getExpr(), variablesMap);
+            QdryVal value = (QdryVal)evaluateExpr(((CallStmt)stmt).getExprList().getNeExprList().getNeExprList().getExpr(), variablesMap);
+            // System.out.println("Executing setLeft/setRight with ref: " + ref + " and value: " + value);
             switch (stmtIdent) {
                 case "setLeft": 
                     ref.qrdyQ.left = value;
@@ -359,20 +366,54 @@ public class Interpreter {
                     args.add(neExprList.getExpr());
                 }
             }
-            if (((CallExpr)expr).getIdent().getIdentStr().equals("randomInt")) {
-                Random random = new Random();
-                QdryInt randomInt = new QdryInt((long)random.nextInt((int)((QdryInt)(evaluateExpr(args.get(0), variablesMap))).getInt()));
-                return randomInt;
+            QdryVal value = (QdryVal)evaluateExpr(((CallExpr)expr).getExprList().getNeExprList().getExpr(), variablesMap);
+            // if (value == null) {
+            //     throw new IllegalStateException("value is null in CallExpr");
+            // }
+            switch (((CallExpr)expr).getIdent().getIdentStr()) {
+                case "randomInt":
+                    Random random = new Random();
+                    QdryInt randomInt = new QdryInt((long)random.nextInt((int)((QdryInt)(evaluateExpr(args.get(0), variablesMap))).getInt()));
+                    return randomInt;
+                case "isNil":
+                    // System.out.println(" ((QdryRef)value).getRef() == QdryNil.getInstance(): "+ (((QdryRef)value).getRef() == QdryNil.getInstance()));
+                    if (value instanceof QdryRef && ((QdryRef)value).getRef() == QdryNil.getInstance()) {
+                        return new QdryInt(1);
+                    }
+                    return new QdryInt(0);
+                case "right":
+                    // System.out.println(" right value: "+value.toString());
+                    // System.out.println(" right QdryQ: "+((QdryRef)value).getRef().toString());
+                    // if (((QdryRef)value).getRef() == QdryNil.getInstance()) {
+                    //     throw new IllegalStateException("right QdryQ nil ");
+                    // }
+                    return ((QdryRef)value).getRef().getRight();
+                    // return new QdryInt(0);
+                case "left":
+                    // System.out.println(" left value: "+value.toString());
+                    // System.out.println(" left QdryQ: "+((QdryRef)value).getRef().toString());
+                    // if (((QdryRef)value).getRef() == QdryNil.getInstance()) {
+                    //     throw new IllegalStateException("left QdryQ nil ");
+                    // }
+                    return ((QdryRef)value).getRef().getLeft();
+                    // return new QdryInt(0);
+                case "isAtom":
+                    if (value instanceof QdryInt && ((QdryRef)value).getRef() == QdryNil.getInstance()) {
+                        return new QdryInt(1);
+                    }
+                    return new QdryInt(0);
+                default: break;
             }
             FuncDef funcDef = functionMapping.get(((CallExpr)expr).getIdent().getIdentStr());
             if (funcDef == null) {
-                throw new IllegalStateException("Function definition not found for: " + ((CallExpr)expr).getIdent().getIdentStr());
+                throw new IllegalStateException("Function definition null for: " + ((CallExpr)expr).getIdent().getIdentStr());
             }
             Map<String, QdryVal> tempMap = new HashMap<>(variablesMap);
             ArrayList<QdryVal> argsVal = new ArrayList<>();
             for (Expr e : args) {
                 argsVal.add(evaluateExpr(e, variablesMap));
             }
+            // returnFlag[0] = false;
             QdryVal result = evaluateFuncDef(funcDef, argsVal, tempMap);
             returnFlag = false;
             return result;

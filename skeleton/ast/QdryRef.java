@@ -9,13 +9,14 @@ public class QdryRef extends QdryVal {
 
     public QdryQ getRef() {
         return qrdyQ;
+        // return qrdyQ != null ? qrdyQ : QdryNil.getInstance();
     }
 
     @Override
     public String toString() {
-        if (qrdyQ == null) {
+        if (qrdyQ == null || qrdyQ == QdryNil.getInstance()) {
             return "nil";
         }
-        return "("+qrdyQ.toString()+")";
+        return "(" + qrdyQ.toString() + ")";
     }
 }

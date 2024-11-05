@@ -1,164 +1,114 @@
 javac -cp /home/abced/cup/java-cup-11b.jar:. */*.java
 Testing -heapsize 1638400 isrefint.q 42, worth 0 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 ssetRightandLeft.q 42, worth 1 points: PASSED
 Testing -heapsize 1638400 sfact.q 6, worth 1 points: PASSED
 Testing -heapsize 1638400 sCheckParams.q 8, worth 1 points: PASSED
 Testing -heapsize 1638400 sGetMax.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 40 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 sFibSeries.q 15, worth 1 points: PASSED
-Testing -heapsize 1638400 sgetVal.q 7, worth 1 points: FAILED
-REF_OUT is Interpreter returned 27 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 sgetVal.q 7, worth 1 points: PASSED
 Testing -heapsize 1638400 sNatural.q 10, worth 1 points: PASSED
 Testing -heapsize 1638400 sReplace.q 55, worth 1 points: FAILED
 REF_OUT is Interpreter returned (4 . (3 . (5 . (42 . (11 . (55 . (27 . (1 . nil)))))))) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 sRevList.q 8, worth 1 points: FAILED
 REF_OUT is Interpreter returned ((((((((nil . 1) . 2) . 3) . 4) . 5) . 6) . 7) . 8) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 sSquareSeq.q 10, worth 1 points: PASSED
-Testing -heapsize 1638400 sminJumps.q 5, worth 1 points: FAILED
-REF_OUT is Interpreter returned 2 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 sminJumps.q 5, worth 1 points: PASSED
 Testing -heapsize 1638400 sSort.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned (1 . (3 . (4 . (5 . (11 . (27 . (32 . (42 . nil)))))))) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 sBinarySearch.q 666, worth 1 points: FAILED
 REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 sBinarySearch.q 27, worth 1 points: FAILED
 REF_OUT is Interpreter returned 1 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 calc2.q 10, worth 1 points: FAILED
 REF_OUT is Interpreter returned 560 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 primes2.q 200, worth 1 points: PASSED
-Testing -heapsize 1638400 simpleRandomList.q 88, worth 1 points: FAILED
-REF_OUT is Interpreter returned 88 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 simpleRandomList.q 88, worth 1 points: PASSED
 Testing -heapsize 1638400 simpleWhile.q 100, worth 1 points: PASSED
 Testing -heapsize 1638400 fact.q 15, worth 1 points: PASSED
 Testing -heapsize 1638400 flip.q 30, worth 1 points: FAILED
 REF_OUT is Interpreter returned ((((((((((((((((((((((((((((((nil . 1) . 2) . 3) . 4) . 5) . 6) . 7) . 8) . 9) . 10) . 11) . 12) . 13) . 14) . 15) . 16) . 17) . 18) . 19) . 20) . 21) . 22) . 23) . 24) . 25) . 26) . 27) . 28) . 29) . 30) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 max3.q 200, worth 1 points: FAILED
-REF_OUT is Interpreter returned 200 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 third.q 20, worth 1 points: FAILED
-REF_OUT is Interpreter returned (2 . 3) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
+Testing -heapsize 1638400 max3.q 200, worth 1 points: PASSED
+Testing -heapsize 1638400 third.q 20, worth 1 points: PASSED
 Testing -heapsize 1638400 append3.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned ((8 . (4 . (3 . (5 . (42 . nil))))) . (8 . (4 . (3 . (5 . (42 . nil)))))) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is Interpreter returned ((8 . nil) . (8 . (4 . (3 . (5 . (42 . nil)))))) Quandary process returned 0
 Testing -heapsize 1638400 cycles.q 15, worth 1 points: PASSED
 Testing -heapsize 1638400 garbage2.q 200000, worth 1 points: PASSED
 Testing -heapsize 1638400 sideeffect3.q 10, worth 1 points: FAILED
 REF_OUT is Interpreter returned ((10 . 11) . 11) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 nils.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned (((nil . (nil . nil)) . nil) . (nil . nil)) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 sortdet4.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned (443 . (2375 . (2376 . (7613 . (9752 . (9988 . (10817 . (11200 . (11639 . (12152 . (12686 . (14446 . (19956 . (26169 . (28521 . (29646 . (35647 . (38620 . (39448 . (42692 . (47189 . (48764 . (49112 . (51065 . (51521 . (51957 . (52049 . (52665 . (55068 . (55625 . (57610 . (66209 . (71958 . (76883 . (76930 . (80951 . (82671 . (84873 . (86319 . (90650 . (91414 . (92217 . nil)))))))))))))))))))))))))))))))))))))))))) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 blah.q 15, worth 1 points: FAILED
-REF_OUT is Interpreter returned 113 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
+Testing -heapsize 1638400 nils.q 42, worth 1 points: PASSED
+Testing -heapsize 1638400 sortdet4.q 42, worth 1 points: PASSED
+Testing -heapsize 1638400 blah.q 15, worth 1 points: PASSED
 Testing -heapsize 1638400 calc.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 3840 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 fibserial.q 10, worth 1 points: FAILED
-REF_OUT is Interpreter returned ((55 . 55) . 55) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
+Testing -heapsize 1638400 fibserial.q 10, worth 1 points: PASSED
 Testing -heapsize 1638400 primes.q 70, worth 1 points: FAILED
 REF_OUT is Interpreter returned ((2 . (3 . (5 . (7 . (11 . (13 . (17 . (19 . (23 . (29 . (31 . (37 . (41 . (43 . (47 . (53 . (59 . (61 . (67 . nil))))))))))))))))))) . 19) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 updates.q 42, worth 1 points: PASSED
-Testing -heapsize 1638400 blarg.q 5, worth 1 points: FAILED
-REF_OUT is Interpreter returned 53 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 blarg.q 5, worth 1 points: PASSED
 Testing -heapsize 1638400 simple.q 8, worth 1 points: PASSED
 Testing -heapsize 1638400 fact.q 12, worth 1 points: PASSED
 Testing -heapsize 1638400 primes2.q 50, worth 1 points: PASSED
 Testing -heapsize 1638400 flip.q 10, worth 1 points: FAILED
 REF_OUT is Interpreter returned ((((((((((nil . 1) . 2) . 3) . 4) . 5) . 6) . 7) . 8) . 9) . 10) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 simple.q 18, worth 1 points: PASSED
 Testing -heapsize 1638400 fact.q 19, worth 1 points: PASSED
 Testing -heapsize 1638400 primes3.q 100, worth 1 points: FAILED
 REF_OUT is Interpreter returned ((2 . (3 . (5 . (7 . (11 . (13 . (17 . (19 . (23 . (29 . (31 . (37 . (41 . (43 . (47 . (53 . (59 . (61 . (67 . (71 . (73 . (79 . (83 . (89 . (97 . nil))))))))))))))))))))))))) . 25) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 max.q 15, worth 1 points: FAILED
-REF_OUT is Interpreter returned 15 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 second.q 20, worth 1 points: FAILED
-REF_OUT is Interpreter returned ((7 . 2) . 6) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 append.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned (4 . (3 . (5 . (42 . nil)))) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
+Testing -heapsize 1638400 max.q 15, worth 1 points: PASSED
+Testing -heapsize 1638400 second.q 20, worth 1 points: PASSED
+Testing -heapsize 1638400 append.q 42, worth 1 points: PASSED
 Testing -heapsize 1638400 castingabout.q 20, worth 1 points: PASSED
 Testing -heapsize 1638400 castingabout.q -20, worth 1 points: PASSED
-Testing -heapsize 1638400 casts2.q 20, worth 1 points: FAILED
-REF_OUT is Interpreter returned 0 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 casts2.q 20, worth 1 points: PASSED
 Testing -heapsize 1638400 cycles.q 20, worth 1 points: PASSED
-Testing -heapsize 1638400 depcast.q 20, worth 1 points: FAILED
-REF_OUT is Interpreter returned (20 . (nil . 8)) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 depcast.q 20, worth 1 points: PASSED
 Testing -heapsize 1638400 fact2.q 20, worth 1 points: PASSED
 Testing -heapsize 1638400 flip2.q 200, worth 1 points: FAILED
 REF_OUT is Interpreter returned ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((nil . 1) . 2) . 3) . 4) . 5) . 6) . 7) . 8) . 9) . 10) . 11) . 12) . 13) . 14) . 15) . 16) . 17) . 18) . 19) . 20) . 21) . 22) . 23) . 24) . 25) . 26) . 27) . 28) . 29) . 30) . 31) . 32) . 33) . 34) . 35) . 36) . 37) . 38) . 39) . 40) . 41) . 42) . 43) . 44) . 45) . 46) . 47) . 48) . 49) . 50) . 51) . 52) . 53) . 54) . 55) . 56) . 57) . 58) . 59) . 60) . 61) . 62) . 63) . 64) . 65) . 66) . 67) . 68) . 69) . 70) . 71) . 72) . 73) . 74) . 75) . 76) . 77) . 78) . 79) . 80) . 81) . 82) . 83) . 84) . 85) . 86) . 87) . 88) . 89) . 90) . 91) . 92) . 93) . 94) . 95) . 96) . 97) . 98) . 99) . 100) . 101) . 102) . 103) . 104) . 105) . 106) . 107) . 108) . 109) . 110) . 111) . 112) . 113) . 114) . 115) . 116) . 117) . 118) . 119) . 120) . 121) . 122) . 123) . 124) . 125) . 126) . 127) . 128) . 129) . 130) . 131) . 132) . 133) . 134) . 135) . 136) . 137) . 138) . 139) . 140) . 141) . 142) . 143) . 144) . 145) . 146) . 147) . 148) . 149) . 150) . 151) . 152) . 153) . 154) . 155) . 156) . 157) . 158) . 159) . 160) . 161) . 162) . 163) . 164) . 165) . 166) . 167) . 168) . 169) . 170) . 171) . 172) . 173) . 174) . 175) . 176) . 177) . 178) . 179) . 180) . 181) . 182) . 183) . 184) . 185) . 186) . 187) . 188) . 189) . 190) . 191) . 192) . 193) . 194) . 195) . 196) . 197) . 198) . 199) . 200) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 garbage.q 1000000, worth 1 points: PASSED
 Testing -heapsize 1638400 garbage2.q 1000000, worth 1 points: PASSED
-Testing -heapsize 1638400 goodlists.q 40, worth 1 points: FAILED
-REF_OUT is Interpreter returned ((40 . (39 . (38 . (37 . (36 . (35 . (34 . (33 . (32 . (31 . (30 . (29 . (28 . (27 . (26 . (25 . (24 . (23 . (22 . (21 . (20 . (19 . (18 . (17 . (16 . (15 . (14 . (13 . (12 . (11 . (10 . (9 . (8 . (7 . (6 . (5 . (4 . (3 . (2 . (1 . nil)))))))))))))))))))))))))))))))))))))))) . 40) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 goodlists.q 40, worth 1 points: PASSED
 Testing -heapsize 1638400 heap.q 2, worth 1 points: PASSED
-Testing -heapsize 1638400 inputdep.q 1, worth 1 points: FAILED
-REF_OUT is Interpreter returned 5 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 inputdep.q 3, worth 1 points: FAILED
-REF_OUT is Interpreter returned nil Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 insert.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned (5 . (42 . (70 . (99 . nil)))) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 max.q 10, worth 1 points: FAILED
-REF_OUT is Interpreter returned 10 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 inputdep.q 1, worth 1 points: PASSED
+Testing -heapsize 1638400 inputdep.q 3, worth 1 points: PASSED
+Testing -heapsize 1638400 insert.q 42, worth 1 points: PASSED
+Testing -heapsize 1638400 max.q 10, worth 1 points: PASSED
 Testing -heapsize 1638400 mutablePara.q 42, worth 1 points: PASSED
-Testing -heapsize 1638400 randomList.q 100, worth 1 points: FAILED
-REF_OUT is Interpreter returned 100 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 sideeffect.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned 6 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 sideeffect2.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned (22 . 33) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 sortdet.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned (2 . (2 . (3 . (4 . (6 . (22 . (23 . (24 . (43 . (45 . (72 . nil))))))))))) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 sortdet2.q 42, worth 1 points: FAILED
-REF_OUT is Interpreter returned (2 . (2 . (3 . (4 . (4 . (5 . (6 . (18 . (22 . (22 . (22 . (23 . (24 . (24 . (24 . (25 . (33 . (33 . (36 . (42 . (43 . (43 . (43 . (45 . (54 . (54 . (54 . (72 . nil)))))))))))))))))))))))))))) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+Testing -heapsize 1638400 randomList.q 100, worth 1 points: PASSED
+Testing -heapsize 1638400 sideeffect.q 42, worth 1 points: PASSED
+Testing -heapsize 1638400 sideeffect2.q 42, worth 1 points: PASSED
+Testing -heapsize 1638400 sortdet.q 42, worth 1 points: PASSED
+Testing -heapsize 1638400 sortdet2.q 42, worth 1 points: PASSED
 Testing -heapsize 1638400 sum.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned 32 Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 temproot.q 100, worth 1 points: PASSED
 Testing -heapsize 1638400 temproot2.q 10, worth 1 points: PASSED
 Testing -heapsize 1638400 twoCells.q 1000000, worth 1 points: FAILED
 REF_OUT is Interpreter returned (0 . 1) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
 Testing -heapsize 1638400 updates3.q 42, worth 1 points: FAILED
 REF_OUT is Interpreter returned (nil . 1) Quandary process returned 0
-SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
-Testing -heapsize 1638400 sNewmanConwaySequence.q 16, worth 2 points: PASSED
+SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:87) Quandary process returned 1
+Testing -heapsize 1638400 sNewmanConwaySequence.q 16, worth 2 points: ^C
 Testing -heapsize 1638400 updates5.q 8, worth 2 points: FAILED
 REF_OUT is Interpreter returned ((((((((nil . ((16 . nil) . ((1 . (nil . 2)) . (8 . nil)))) . ((14 . nil) . ((1 . (nil . 2)) . (7 . nil)))) . ((12 . nil) . ((1 . (nil . 2)) . (6 . nil)))) . ((10 . nil) . ((1 . (nil . 2)) . (5 . nil)))) . ((8 . nil) . ((1 . (nil . 2)) . (4 . nil)))) . ((6 . nil) . ((1 . (nil . 2)) . (3 . nil)))) . ((4 . nil) . ((1 . (nil . 2)) . (2 . nil)))) . ((2 . nil) . ((1 . (nil . 2)) . (1 . nil)))) Quandary process returned 0
 SUB_OUT is at interpreter.Interpreter.main(Interpreter.java:86) Quandary process returned 1
