@@ -135,6 +135,7 @@ public class Interpreter {
         if (mainFunc.getVarDecl().getIdent().getIdentStr().equals("main")) {
             Map<String, QdryVal> variablesMap = new HashMap<>();
             // returnFlag[0] = false;
+            returnFlag = false;
             return evaluateFuncDef(mainFunc, args, variablesMap);
         } else {
             throw new RuntimeException("no main method");
@@ -414,13 +415,14 @@ public class Interpreter {
                 argsVal.add(evaluateExpr(e, variablesMap));
             }
             // returnFlag[0] = false;
+            returnFlag = false;
             QdryVal result = evaluateFuncDef(funcDef, argsVal, tempMap);
             returnFlag = false;
             return result;
         } else if (expr instanceof TypeCastExpr) {
             return evaluateExpr(((TypeCastExpr)expr).getExpr(), variablesMap);
         } else if (expr instanceof NilExpr) {
-            return new QdryRef(null);
+            return new QdryRef(QdryNil.getInstance());
         } else {
             throw new RuntimeException("Unhandled Expr type");
         }
