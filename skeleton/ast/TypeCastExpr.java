@@ -1,5 +1,7 @@
 package ast;
 
+import ast.TypeDecl.Type;
+
 public class TypeCastExpr extends Expr {
 
     final Type type;
@@ -12,7 +14,7 @@ public class TypeCastExpr extends Expr {
     }
 
     public Type getType() {
-        return type;
+        return this.type;
     }
     public Expr getExpr() {
         return expr;

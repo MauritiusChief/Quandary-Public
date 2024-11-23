@@ -37,9 +37,9 @@ public class FuncDef extends ASTNode {
     public FormalDeclList getFormalDeclList() {
         return formalDeclList;
     }
-    // public VarDecl getVarDecl() {
-    //     return varDecl;
-    // }
+    public VarDecl getVarDecl() {
+        return varDecl;
+    }
     public StmtList getStmtList() {
         return body;
     }
@@ -47,8 +47,8 @@ public class FuncDef extends ASTNode {
     @Override
     public String toString() {
         if (formalDeclList == null){
-            return varDecl.getName() + "()" + "{" + body.toString()+"}" ;
+            return varDecl.getName() + "() {" + body.toString()+"}" ;
         }
-        return varDecl.getName() + "(" + formalDeclList.toString()+")"+"{"+body.toString()+"}";
+        return varDecl.getName() + "(" + formalDeclList.toString()+") {"+body.toString()+"}";
     }
 }

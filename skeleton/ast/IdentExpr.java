@@ -9,7 +9,7 @@ public class IdentExpr extends Expr {
         this.ident = ident;
     }
 
-    public String getIdentStr() {
+    public String getName() {
         return ident;
     }
 

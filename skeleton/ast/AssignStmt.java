@@ -1,17 +1,19 @@
 package ast;
 
+import ast.TypeDecl.Type;
+
 public class AssignStmt extends Stmt{
-    final String ident;
+    final String name;
     final Expr expr;
 
-    public AssignStmt(String ident, Expr expr, Location loc) {
+    public AssignStmt(String name, Expr expr, Location loc) {
         super(loc);
-        this.ident = ident;
+        this.name = name;
         this.expr = expr;
     }
 
-    public String getIdentStr() {
-        return ident;
+    public String getName() {
+        return name;
     }
 
     public Expr getExpr() {
@@ -20,6 +22,6 @@ public class AssignStmt extends Stmt{
 
     @Override
     public String toString() {
-        return ident + " = " + expr + ";";
+        return name + " = " + expr + ";";
     }
 }

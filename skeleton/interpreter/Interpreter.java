@@ -1,5 +1,6 @@
 package interpreter;
 
+import interpreter.SExpression;
 import java.io.*;
 import java.util.Random;
 import java.util.TreeMap;
@@ -113,75 +114,33 @@ public class Interpreter {
         }
     }
 
-    QdryVal executeRoot(Program astRoot, long arg) {
-        return evaluateFuncDefList(this.methods, arg);
-    }
-    QdryVal evaluateFuncDefList(Map<String, FuncDef> methods, long arg) {
-        ArrayList<QdryVal> args = new ArrayList<>();
-        args.add(new QdryInt(arg));
-        FuncDef mainFunc = methods.get("main");
+    Object executeRoot(Program astRoot, long arg) {
+        FuncDef mainFunc = this.methods.get("main");
         String id = mainFunc.getParamNames().get(0);
- 
-        // functionMapping.put(id, funcDefList.getFuncDef());
-        // while (funcDefList.getFuncDefList() != null) {
-        //     funcDefList = funcDefList.getFuncDefList();
-        //     id = funcDefList.getFuncDef().getVarDecl().getIdent().getIdentStr();
-        //     //System.out.println(id);
-        //     if (id.equals("main")) {
-        //         mainFunc = funcDefList.getFuncDef();
-        //     }
-        //     functionMapping.put(id, funcDefList.getFuncDef());
-        // }
 
         if (mainFunc.getName().equals("main")) {
-            Map<String, QdryVal> variablesMap = new HashMap<>();
-            variablesMap.put(id, new QdryInt(arg));
-            // returnFlag[0] = false;
-            returnFlag = false;
-            return evaluateFuncDef(mainFunc, args, variablesMap);
+            Map<String, Object> variablesMap = new HashMap<>();
+            variablesMap.put(id, arg);
+            return evaluateStmtList(mainFunc.getStmtList(), variablesMap);
         } else {
             throw new RuntimeException("no main method");
         }
     }
 
-    QdryVal evaluateFuncDef(FuncDef funcDef, ArrayList<QdryVal> args, Map<String, QdryVal> variablesMap) {
-        if (funcDef.getFormalDeclList() != null) {
-            evaluateFormalDeclList(funcDef.getFormalDeclList(), args, variablesMap);
-        }
-        // Object result = interpreter.evaluateStmtList(funcDef.getStmtList(), variablesMap);
-        // if (result == null) {
-        //     throw new NullPointerException("evaluateStmtList returned null");
-        // }
-        return evaluateStmtList(funcDef.getStmtList(), variablesMap);
-    }
-
-    QdryVal evaluateStmtList(StmtList stmtList, Map<String, QdryVal> variablesMap){
-        QdryVal stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
-        // if (stmt == null) {
-        //     throw new NullPointerException("evaluateStmt returned null");
-        // }
-        // if (returnFlag[0]) {
-        if (returnFlag == true) {
+    Object evaluateStmtList(StmtList stmtList, Map<String, Object> variablesMap){
+        Object stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
+        if (stmt == null) {
+            return evaluateStmtList(stmtList.getStmtList(), variablesMap);
+        } else {
             return stmt;
         }
-        while (stmtList.getStmtList() != null)
-        {
-            stmtList = stmtList.getStmtList();
-            stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
-
-            if(returnFlag == true){
-            // if(returnFlag[0]){
-                break;
-            }
-        }
-        return stmt;
     }
 
-    void evaluateFormalDeclList(FormalDeclList formalDeclList, ArrayList<QdryVal> args, Map<String, QdryVal> variablesMap){
+    void evaluateFormalDeclList(FormalDeclList formalDeclList, ArrayList<Object> args, Map<String, Object> variablesMap){
         evaluateNeFormalDeclList(formalDeclList.getNeFormalDeclList(), args, variablesMap);
     }
 
-    void evaluateNeFormalDeclList(NeFormalDeclList neFormalDeclList, ArrayList<QdryVal> args, Map<String, QdryVal> variablesMap){
+    void evaluateNeFormalDeclList(NeFormalDeclList neFormalDeclList, ArrayList<Object> args, Map<String, Object> variablesMap){
         int i = 0;
         variablesMap.put(neFormalDeclList.getVarDecl().getName(), args.get(i));
         while (neFormalDeclList.getNeFormalDeclList() != null){
@@ -191,27 +150,27 @@ public class Interpreter {
         }
     }
 
-    QdryVal evaluateExprList(ExprList exprList, ArrayList<QdryVal> args, Map<String, QdryVal> variablesMap) {
-        QdryVal value = evaluateNeExprList(exprList.getNeExprList(), args, variablesMap);
+    Object evaluateExprList(ExprList exprList, ArrayList<Object> args, Map<String, Object> variablesMap) {
+        Object value = evaluateNeExprList(exprList.getNeExprList(), args, variablesMap);
         if (exprList.getNeExprList() != null){
             return evaluateNeExprList(exprList.getNeExprList(), args, variablesMap);   
         }
         return value;
     }
 
-    QdryVal evaluateNeExprList(NeExprList neExprList, ArrayList<QdryVal> args, Map<String, QdryVal> variablesMap){
-        QdryVal exprValueFirst = evaluateExpr(neExprList.getExpr(),variablesMap);
+    Object evaluateNeExprList(NeExprList neExprList, ArrayList<Object> args, Map<String, Object> variablesMap){
+        Object exprValueFirst = evaluateExpr(neExprList.getExpr(),variablesMap);
         if (neExprList.getNeExprList() != null) {
             return evaluateNeExprList(neExprList.getNeExprList(), args, variablesMap);
         }
         return exprValueFirst; 
     }
 
-    boolean evaluateCond(Cond cond, Map<String, QdryVal> variablesMap){
+    boolean evaluateCond(Cond cond, Map<String, Object> variablesMap){
             if(cond instanceof RelationalCond) {
                 RelationalCond relCond = (RelationalCond) cond;
-                Long leftExpr = ((QdryInt)evaluateExpr(relCond.getLeftExpr(),variablesMap)).getInt();
-                Long rightExpr = ((QdryInt) evaluateExpr(relCond.getRightExpr(), variablesMap)).getInt();
+                Long leftExpr = (Long)evaluateExpr(relCond.getLeftExpr(),variablesMap);
+                Long rightExpr = (Long)evaluateExpr(relCond.getRightExpr(), variablesMap);
                 switch (relCond.getOperator()) {
                     case LE: return leftExpr <= rightExpr;
                     case GE: return leftExpr >= rightExpr;
@@ -238,18 +197,18 @@ public class Interpreter {
             }
     }
 
-    QdryVal evaluateStmt(Stmt stmt, Map<String, QdryVal> variablesMap){
+    Object evaluateStmt(Stmt stmt, Map<String, Object> variablesMap){
         if (stmt instanceof DeclStmt){
             DeclStmt declStmt = (DeclStmt)stmt;
             String varName = declStmt.getVarDecl().getName();
-            QdryVal value = evaluateExpr(declStmt.getExpr(),variablesMap);
+            Object value = evaluateExpr(declStmt.getExpr(),variablesMap);
             variablesMap.put(varName, value);
             // System.out.println(value);
             return value;
         } else if (stmt instanceof IfStmt) {
             IfStmt ifStatement = (IfStmt)stmt;
             boolean condition = evaluateCond(ifStatement.getCond(),variablesMap);
-            QdryVal value = null;
+            Object value = null;
             if (condition){
                 value = evaluateStmt(ifStatement.getStmt(), variablesMap);
             }
@@ -258,7 +217,7 @@ public class Interpreter {
         } else if (stmt instanceof IfElseStmt){
             IfElseStmt ifElseStmt = (IfElseStmt)stmt;
             boolean condition = evaluateCond(ifElseStmt.getCond(),variablesMap);
-            QdryVal value = null;
+            Object value = null;
             if (condition){
                 value = evaluateStmt(ifElseStmt.getStmt1(), variablesMap);
             } else {
@@ -268,71 +227,54 @@ public class Interpreter {
             return value;
         } else if (stmt instanceof PrintStmt) {
             PrintStmt printStmt = (PrintStmt)stmt;
-            QdryVal value = evaluateExpr(printStmt.getExpr(), variablesMap);
+            Object value = evaluateExpr(printStmt.getExpr(), variablesMap);
             // System.out.println(value);
             return value;
         } else if (stmt instanceof AssignStmt) {
-            variablesMap.put(((AssignStmt)stmt).getIdentStr(), evaluateExpr(((AssignStmt)stmt).getExpr(), variablesMap));
-            return new QdryInt(1);
+            AssignStmt assignStmt = (AssignStmt)stmt;
+            String name = assignStmt.getName();
+            Object value = evaluateExpr(assignStmt.getExpr(), variablesMap);
+            variablesMap.put(name, value);
+            return null;
         } else if (stmt instanceof WhileStmt) {
-            QdryVal value = new QdryInt(0);
-            while (evaluateCond(((WhileStmt)stmt).getCond(), variablesMap)) {
-                value = evaluateStmt(((WhileStmt)stmt).getStmt(), variablesMap);
-                if (returnFlag) {
-                // if (returnFlag[0]) {
-                    break;
-                }
+            WhileStmt whileStmt = (WhileStmt)stmt;
+            boolean test = evaluateCond(whileStmt.getCond(), variablesMap);
+            while (test) {
+                Object value = evaluateStmt(whileStmt.getStmt(), variablesMap);
+                if (value != null) return value;
+                test = evaluateCond(whileStmt.getCond(), variablesMap);
             }
-            return value;
+            return null;
         } else if (stmt instanceof ReturnStmt) {
             ReturnStmt returnStmt = (ReturnStmt)stmt;
-            QdryVal value = evaluateExpr(returnStmt.getExpr(),variablesMap);
+            Object value = evaluateExpr(returnStmt.getExpr(),variablesMap);
             returnFlag = true;
             // returnFlag[0] = true;
             // System.out.println(value);
             return value;
         } else if (stmt instanceof StmtBlock) {
             StmtBlock stmtBlock = (StmtBlock)stmt;
-            QdryVal value = evaluateStmtList(stmtBlock.getStmtList(), variablesMap);
+            Object value = evaluateStmtList(stmtBlock.getStmtList(), variablesMap);
             // System.out.println(value);
             return value;
         } else if (stmt instanceof CallStmt) {
-            ArrayList<Expr> exprs = new ArrayList<>();
-            NeExprList neExprList = ((CallStmt)stmt).getExprList().getNeExprList();
-            while (neExprList.getNeExprList() != null) {
-                neExprList = neExprList.getNeExprList();
-                exprs.add(neExprList.getExpr());
-            }
-            String stmtIdent = ((CallStmt)stmt).getIdentStr();
-            QdryRef ref = (QdryRef)evaluateExpr(((CallStmt)stmt).getExprList().getNeExprList().getExpr(), variablesMap);
-            QdryVal value = (QdryVal)evaluateExpr(((CallStmt)stmt).getExprList().getNeExprList().getNeExprList().getExpr(), variablesMap);
-            // System.out.println("Executing setLeft/setRight with ref: " + ref + " and value: " + value);
-            switch (stmtIdent) {
-                case "setLeft": 
-                    ref.qrdyQ.left = value;
-                    return new QdryInt(1);
-                case "setRight":
-                    ref.qrdyQ.right = value;
-                    return new QdryInt(1);
-                default: return new QdryInt(1);
-            }
+            CallExpr call = ((CallStmt) stmt).getCall();
+            evaluateCallExpr(call, variablesMap);
+            return null;
         } else {
             throw new RuntimeException("Unhandled Stmt type");
         }
     }
 
-    QdryVal evaluateCallExpr(CallExpr callExpr, Map<String, QdryVal> variablesMap) {
-        List<QdryVal> actual = new LinkedList<>();
+    Object evaluateCallExpr(CallExpr callExpr, Map<String, Object> variablesMap) {
+        List<Object> actual = new LinkedList<>();
         for (Expr e : callExpr.getArguments()) {
             actual.add(evaluateExpr(e, variablesMap));
         }
-        // if (expr == null) {
-        //     throw new IllegalStateException("expr is null in CallExpr");
-        // }
-        // ExprList exprList = callExpr.getExprList();
-        // if (exprList == null) {
-        //     throw new IllegalStateException("exprList is null in CallExpr");
-        // }
+        ExprList exprList = callExpr.getExprList();
+        if (exprList == null) {
+            throw new IllegalStateException("exprList is null in CallExpr");
+        }
         // if (exprList != null) {
         //     NeExprList neExprList = exprList.getNeExprList();
         //     // if (neExprList == null) {
@@ -344,88 +286,88 @@ public class Interpreter {
         //         args.add(neExprList.getExpr());
         //     }
         // }
-        QdryVal value = (QdryVal)evaluateExpr((callExpr).getExprList().getNeExprList().getExpr(), variablesMap);
-        // if (value == null) {
-        //     throw new IllegalStateException("value is null in CallExpr");
-        // }
+        Object value = evaluateExpr((callExpr).getExprList().getNeExprList().getExpr(), variablesMap);
+        if (value == null) {
+            throw new IllegalStateException("value is null in CallExpr");
+        }
         switch ((callExpr.getName())) {
             case "randomInt":
-                Random random = new Random();
-                QdryInt randomInt = new QdryInt((long)random.nextInt((int)((QdryInt)(evaluateExpr(actual.get(0), variablesMap))).getInt()));
+                Long randomInt = (long)random.nextInt((int)(actual.get(0)));
                 return randomInt;
-            case "isNil":
-                // System.out.println(" ((QdryRef)value).getRef() == QdryNil.getInstance(): "+ (((QdryRef)value).getRef() == QdryNil.getInstance()));
-                if (value instanceof QdryRef && ((QdryRef)value).getRef() == QdryNil.getInstance()) {
-                    return new QdryInt(1);
-                }
-                return new QdryInt(0);
             case "right":
-                // System.out.println(" right value: "+value.toString());
-                // System.out.println(" right QdryQ: "+((QdryRef)value).getRef().toString());
-                // if (((QdryRef)value).getRef() == QdryNil.getInstance()) {
-                //     throw new IllegalStateException("right QdryQ nil ");
-                // }
-                return ((QdryRef)value).getRef().getRight();
-                // return new QdryInt(0);
+                return ((SExpression) actual.get(0)).right();
             case "left":
-                // System.out.println(" left value: "+value.toString());
-                // System.out.println(" left QdryQ: "+((QdryRef)value).getRef().toString());
-                // if (((QdryRef)value).getRef() == QdryNil.getInstance()) {
-                //     throw new IllegalStateException("left QdryQ nil ");
-                // }
-                return ((QdryRef)value).getRef().getLeft();
-                // return new QdryInt(0);
+                return ((SExpression) actual.get(0)).left();
+            case "setRight":
+                ((SExpression) actual.get(0)).setRight(actual.get(1));
+                return 1L;
+            case "setLeft":
+                ((SExpression) actual.get(0)).setLeft(actual.get(1));
+                return 1L;
             case "isAtom":
-                if (value instanceof QdryInt && ((QdryRef)value).getRef() == QdryNil.getInstance()) {
-                    return new QdryInt(1);
-                }
-                return new QdryInt(0);
+                if (actual.get(0) == SExpression.NIL || actual.get(0) instanceof Long) return 1L;
+                return 0L;
+            case "isNil":
+                if (actual.get(0) == SExpression.NIL) return 1L;
+                return 0L;
             default: 
                 FuncDef method = this.methods.get(callExpr.getName());
                 List<String> formalParamsNames = method.getParamNames();
-                Map<String, QdryVal> callContexMap = new TreeMap<>();
+                Map<String, Object> callContexMap = new TreeMap<>();
                 for (int i=0; i<actual.size(); i++) {
                     callContexMap.put(formalParamsNames.get(i), actual.get(i));
                 }
                 return evaluateStmtList(method.getStmtList(), callContexMap);
         }
-        return null;
     }
 
-    QdryVal evaluateExpr(Expr expr, Map<String, QdryVal> variablesMap) {
+    Object evaluateExpr(Expr expr, Map<String, Object> variablesMap) {
         // System.out.println(expr.toString())
         if (expr instanceof ConstExpr) {
-            return new QdryInt((Long)((ConstExpr)expr).getValue());
+            return (Long)((ConstExpr)expr).getValue();
         } else if (expr instanceof BinaryExpr) {
             BinaryExpr binaryExpr = (BinaryExpr)expr;
             if (binaryExpr.getOperator() == BinaryExpr.DOT) {
-                return new QdryRef(new QdryQ(((QdryVal)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap)), ((QdryVal)evaluateExpr(binaryExpr.getRightExpr(),variablesMap))));
+                return new SExpression(evaluateExpr(binaryExpr.getLeftExpr(), variablesMap), evaluateExpr(binaryExpr.getRightExpr(), variablesMap));
             } else {
-                Long leftInt = ((QdryInt)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap)).getInt();
-                Long rightInt = ((QdryInt)evaluateExpr(binaryExpr.getRightExpr(),variablesMap)).getInt();
+                Long leftInt = (Long)evaluateExpr(binaryExpr.getLeftExpr(),variablesMap);
+                Long rightInt = (Long)evaluateExpr(binaryExpr.getRightExpr(),variablesMap);
                 switch (binaryExpr.getOperator()) {
-                    case BinaryExpr.PLUS: return new QdryInt(leftInt + rightInt);
-                    case BinaryExpr.MINUS: return new QdryInt(leftInt - rightInt);
-                    case BinaryExpr.TIMES: return new QdryInt(leftInt * rightInt);
-                    
+                    case BinaryExpr.PLUS: return (Long)(leftInt + rightInt);
+                    case BinaryExpr.MINUS: return (Long)(leftInt - rightInt);
+                    case BinaryExpr.TIMES: return (Long)(leftInt * rightInt);
                     default: throw new RuntimeException("Unhandled Binary operator");
                 }
             }
         } else if (expr instanceof UnaryExpr) {
             UnaryExpr unaryExpr = (UnaryExpr)expr;
             switch (unaryExpr.getOperator()) {
-                case UnaryExpr.NEGATE: return new QdryInt( - ((QdryInt)evaluateExpr(unaryExpr.getExpr(),variablesMap)).getInt());
+                case UnaryExpr.NEGATE: return  - ((Long)evaluateExpr(unaryExpr.getExpr(),variablesMap));
                 default: throw new RuntimeException("Unhandled Unary operator");
             }
         } else if(expr instanceof IdentExpr){        
             IdentExpr identExpr = (IdentExpr)expr;
-            return variablesMap.get(identExpr.getIdentStr());
+            return variablesMap.get(identExpr.getName());
         } else if(expr instanceof CallExpr){
             return evaluateCallExpr((CallExpr)expr, variablesMap);
         } else if (expr instanceof TypeCastExpr) {
-            return evaluateExpr(((TypeCastExpr)expr).getExpr(), variablesMap);
+            TypeCastExpr typeCastExpr = (TypeCastExpr)expr;
+            Object result = evaluateExpr(typeCastExpr.getExpr(), variablesMap);
+            switch (typeCastExpr.getType()) {
+                case INT:
+                    if (!(result instanceof Long)) fatalError("Cannot cast int", EXIT_DYNAMIC_TYPE_ERROR);
+                    return result;
+                case REF:
+                    if (!(result instanceof SExpression)) fatalError("Cannot cast Ref", EXIT_DYNAMIC_TYPE_ERROR);
+                    return result;
+                case Q:
+                    return result;
+                default:
+                    fatalError("Unimplemented type", EXIT_DYNAMIC_TYPE_ERROR);
+                    return result;
+            }
         } else if (expr instanceof NilExpr) {
-            return new QdryRef(QdryNil.getInstance());
+            return SExpression.NIL;
         } else {
             throw new RuntimeException("Unhandled Expr type");
         }

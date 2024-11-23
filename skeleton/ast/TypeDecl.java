@@ -17,13 +17,12 @@ public class TypeDecl extends ASTNode {
 
     @Override
     public String toString() {
-        // String s = null;
-        // switch (type) { 
-        //     case 1: s = "int"; break;
-        //     case 2: s = "Q"; break;
-        //     case 3: s = "Ref"; break;
-        // } 
-        // return s + " ";
-        return "";
+        String s = null;
+        switch (t) { 
+            case INT: s = "int"; break;
+            case Q: s = "Q"; break;
+            case REF: s = "Ref"; break;
+        } 
+        return s + " ";
     }
 }

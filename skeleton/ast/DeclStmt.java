@@ -1,6 +1,6 @@
 package ast;
 
-import java.io.PrintStream;
+import ast.TypeDecl.Type;
 
 public class DeclStmt extends Stmt {
 
@@ -13,6 +13,16 @@ public class DeclStmt extends Stmt {
         this.varDecl = varDecl;
     }
 
+    public String getName() {
+        return this.varDecl.getName();
+    }
+    public boolean isMutable() {
+        return varDecl.isMutable();
+    }
+    public Type getType() {
+        return varDecl.getType();
+    }
+
     public Expr getExpr() {
         return expr;
     }
@@ -22,6 +32,6 @@ public class DeclStmt extends Stmt {
 
     @Override
     public String toString() {
-        return varDecl.toString() + "=" + expr.toString();
+        return varDecl.toString() + " = " + expr.toString();
     }
 }

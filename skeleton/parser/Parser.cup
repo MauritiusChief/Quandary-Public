@@ -92,11 +92,11 @@ varDecl ::= type:t IDENT:i
             ;
 
 type ::= INT:t
-         {: RESULT = new Type(TypeDecl.Type.INT,loc(tleft,tright)); :}
+         {: RESULT = new TypeDecl(TypeDecl.Type.INT,loc(tleft,tright)); :}
       |  REF:t
-         {: RESULT = new Type(TypeDecl.Type.REF, loc(tleft,tright)); :}
+         {: RESULT = new TypeDecl(TypeDecl.Type.REF, loc(tleft,tright)); :}
       |  Q:t
-         {: RESULT = new Type(TypeDecl.Type.Q, loc(tleft,tright)); :}
+         {: RESULT = new TypeDecl(TypeDecl.Type.Q, loc(tleft,tright)); :}
          ;
 
 stmtList ::= stmt:s stmtList:sl
@@ -107,6 +107,8 @@ stmtList ::= stmt:s stmtList:sl
 
 stmt ::= varDecl:v EQUAL expr:e SEMICOL
          {: RESULT = new DeclStmt(v, e, loc(vleft, vright)); :}
+      | IDENT:s EQUAL expr:e SEMICOL
+         {: RESULT = new AssignStmt(s, e, loc(sleft, sright)); :}
       | IF LPAREN cond:c RPAREN stmt:s
          {: RESULT = new IfStmt(c, s, loc(cleft, cright)); :}
       | IF LPAREN cond:c RPAREN stmt:s1 ELSE stmt:s2
@@ -121,8 +123,6 @@ stmt ::= varDecl:v EQUAL expr:e SEMICOL
          {: RESULT = new StmtBlock(sl, loc(slleft, slright)); :}
       | IDENT:s LPAREN exprList:el RPAREN SEMICOL
          {: RESULT = new CallStmt(s, el, loc(sleft, sright)); :}
-      | IDENT:s EQUAL expr:e SEMICOL
-         {: RESULT = new AssignStmt(s, e, loc(sleft, sright)); :}
       ;
 
 cond ::= expr:e1 LE expr:e2
@@ -170,9 +170,9 @@ expr ::= INTCONST:c
       |  IDENT:s
          {: RESULT = new IdentExpr(s,loc(sleft,sright)); :}
       |  IDENT:s LPAREN exprList:el RPAREN
-         {: RESULT = new CallExpr(new IdentExpr(s,loc(sleft,sright)),el,loc(sleft,sright)); :}
+         {: RESULT = new CallExpr(s,el,loc(sleft,sright)); :}
       |  LPAREN type:t RPAREN expr:e
-         {: RESULT = new TypeCastExpr(t, e, loc(eleft, eright)); :}
+         {: RESULT = new TypeCastExpr(t.getType(), e, loc(eleft, eright)); :}
       |  NIL:n
          {: RESULT = new NilExpr(loc(nleft, nright)); :}
       ;
