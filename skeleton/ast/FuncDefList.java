@@ -1,5 +1,8 @@
 package ast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FuncDefList extends ASTNode {
 
     final FuncDefList funcDefList;
@@ -11,6 +14,16 @@ public class FuncDefList extends ASTNode {
         this.funcDef = funcDef;
     }
 
+    Map<String, FuncDef> getMethods() {
+        Map<String, FuncDef> functions;
+        if (this.funcDefList == null) {
+            functions = new HashMap<>();
+        } else {
+            functions = funcDefList.getMethods();
+        }
+        functions.put(funcDef.getName(), funcDef);
+        return functions;
+    }
 
     public  FuncDefList getFuncDefList() {
         return  funcDefList;

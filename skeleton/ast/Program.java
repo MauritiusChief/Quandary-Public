@@ -1,21 +1,26 @@
 package ast;
 
 import java.io.PrintStream;
+import java.util.Map;
 
 public class Program extends ASTNode {
 
-    final FuncDefList funcDefList;
+    final FuncDefList functions;
 
     public Program(FuncDefList funcDefList, Location loc) {
         super(loc);
-        this.funcDefList = funcDefList;
+        this.functions = funcDefList;
+    }
+
+    public Map<String, FuncDef> getMethods() {
+        return functions.getMethods();
     }
 
     public FuncDefList getFuncDefList() {
-        return funcDefList;
+        return functions;
     }
 
     public void println(PrintStream ps) {
-        ps.println(funcDefList);
+        ps.println(functions);
     }
 }

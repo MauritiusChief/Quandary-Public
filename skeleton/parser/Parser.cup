@@ -41,7 +41,7 @@ non terminal NeExprList      neExprList;
 non terminal FuncDefList     funcDefList;
 non terminal FuncDef         funcDef;
 non terminal VarDecl         varDecl;
-non terminal Type            type;
+non terminal TypeDecl        type;
 non terminal FormalDeclList  formalDeclList;
 non terminal NeFormalDeclList     neFormalDeclList;
 non terminal Stmt            stmt;
@@ -79,24 +79,24 @@ formalDeclList ::= neFormalDeclList:nfl
                   {: RESULT = null; :}
                ;
 
-neFormalDeclList ::= varDecl:v1 COMMA neFormalDeclList:nfl
-                     {: RESULT = new NeFormalDeclList(v1,nfl,loc(v1left,v1right)); :}
-                  |  varDecl:v1
-                     {: RESULT = new NeFormalDeclList(v1,null,loc(v1left,v1right)); :}
+neFormalDeclList ::= varDecl:vd COMMA neFormalDeclList:rest
+                     {: RESULT = new NeFormalDeclList(vd,rest,loc(vdleft,vdright)); :}
+                  |  varDecl:vd
+                     {: RESULT = new NeFormalDeclList(vd,null,loc(vdleft,vdright)); :}
                   ;
 
 varDecl ::= type:t IDENT:i
-         {: RESULT = new VarDecl(t, new IdentExpr(i, loc(ileft,iright)), loc(tleft,tright)); :}
+         {: RESULT = new VarDecl(false, t.getType(), i, loc(tleft,tright)); :}
          |  MUTABLE type:t IDENT:i
-         {: RESULT = new VarDecl(t, new IdentExpr(i, loc(ileft,iright)), loc(tleft,tright)); :}
+         {: RESULT = new VarDecl(true, t.getType(), i, loc(tleft,tright)); :}
             ;
 
-type ::= INT
-         {: RESULT = new Type(Type.INT,loc(0,0)); :}
-      |  REF
-         {: RESULT = new Type(Type.REF, loc(0,0)); :}
-      |  Q
-         {: RESULT = new Type(Type.Q, loc(0,0)); :}
+type ::= INT:t
+         {: RESULT = new Type(TypeDecl.Type.INT,loc(tleft,tright)); :}
+      |  REF:t
+         {: RESULT = new Type(TypeDecl.Type.REF, loc(tleft,tright)); :}
+      |  Q:t
+         {: RESULT = new Type(TypeDecl.Type.Q, loc(tleft,tright)); :}
          ;
 
 stmtList ::= stmt:s stmtList:sl
@@ -156,7 +156,7 @@ exprList ::= neExprList:nel
 neExprList ::= expr:e COMMA neExprList:nel
                {: RESULT = new NeExprList(e, nel, loc(eleft,eright)); :}
             |  expr:e
-               {: RESULT = new NeExprList(e, loc(eleft,eright)); :}
+               {: RESULT = new NeExprList(e, null, loc(eleft,eright)); :}
             ;
 
 expr ::= INTCONST:c
