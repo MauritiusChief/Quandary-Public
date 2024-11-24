@@ -25,9 +25,6 @@ public class Interpreter {
     public static final int EXIT_QUANDARY_HEAP_OUT_OF_MEMORY_ERROR = 5;
     public static final int EXIT_DATA_RACE_ERROR = 6;
     public static final int EXIT_NONDETERMINISM_ERROR = 7;
-    private static boolean returnFlag = false;
-    // Boolean[] returnFlag = {false};
-    private static HashMap<String, FuncDef> functionMapping = new HashMap<String, FuncDef>();
 
     static private Interpreter interpreter;
 
@@ -248,8 +245,6 @@ public class Interpreter {
         } else if (stmt instanceof ReturnStmt) {
             ReturnStmt returnStmt = (ReturnStmt)stmt;
             Object value = evaluateExpr(returnStmt.getExpr(),variablesMap);
-            returnFlag = true;
-            // returnFlag[0] = true;
             // System.out.println(value);
             return value;
         } else if (stmt instanceof StmtBlock) {
