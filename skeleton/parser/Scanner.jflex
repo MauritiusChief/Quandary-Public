@@ -77,6 +77,8 @@ Identifier = [_a-zA-Z] [_a-zA-Z0-9]*
 "="               { return symbol("=", EQUAL); }
 ","               { return symbol(",", COMMA); }
 "."               { return symbol(".", DOT); }
+"["               { return symbol("[", LBRACKET); }
+"]"               { return symbol("]", RBRACKET); }
 
 "if"              { return symbol("if",  IF); }
 "else"            { return symbol("else",  ELSE); }

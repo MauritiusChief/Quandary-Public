@@ -29,6 +29,7 @@ parser code {:
 
 terminal PLUS, MINUS, TIMES, LPAREN, RPAREN, RETURN, SEMICOL, IF, ELSE, WHILE, PRINT, LBRACE, RBRACE, COMMA, INT, REF, Q, MUTABLE, DOT, NIL;
 terminal LE, GE, EQ, NE, LT, GT, AND, OR, NOT, EQUAL;
+terminal LBRACKET, RBRACKET;
 terminal Long    INTCONST;
 terminal String     IDENT;
 
@@ -173,6 +174,8 @@ expr ::= INTCONST:c
          {: RESULT = new CallExpr(new IdentExpr(s,loc(sleft,sright)),el,loc(sleft,sright)); :}
       |  LPAREN type:t RPAREN expr:e
          {: RESULT = new TypeCastExpr(t, e, loc(eleft, eright)); :}
+      |  LBRACKET binaryExpr:e RBRACKET
+         {: RESULT = new ConcurrencyExpr(e, loc(eleft, eright)); :}
       |  NIL:n
          {: RESULT = new NilExpr(loc(nleft, nright)); :}
       ;

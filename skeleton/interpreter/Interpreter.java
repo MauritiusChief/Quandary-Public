@@ -319,7 +319,7 @@ public class Interpreter {
         }
     }
 
-    QdryVal evaluateExpr(Expr expr, Map<String, QdryVal> variablesMap) {
+    public QdryVal evaluateExpr(Expr expr, Map<String, QdryVal> variablesMap) {
         // System.out.println(expr.toString())
         if (expr instanceof ConstExpr) {
             return new QdryInt((Long)((ConstExpr)expr).getValue());
@@ -423,6 +423,35 @@ public class Interpreter {
             return evaluateExpr(((TypeCastExpr)expr).getExpr(), variablesMap);
         } else if (expr instanceof NilExpr) {
             return new QdryRef(QdryNil.getInstance());
+        } else if (expr instanceof ConcurrencyExpr) {
+            BinaryExpr concurrentBinaryExpr = ((ConcurrencyExpr)expr).getBinaryExpr();
+            QdryVal leftVal;
+            QdryVal rightVal;
+            MyThread t1 = new MyThread(concurrentBinaryExpr.getLeftExpr(), variablesMap);
+            MyThread t2 = new MyThread(concurrentBinaryExpr.getRightExpr(), variablesMap);
+            t1.start();
+            t2.start();
+            try {
+                t1.join();
+                t2.join();
+            } catch (InterruptedException e) {
+                System.out.println("Interrupted.");
+            }
+            leftVal = t1.getVal();
+            rightVal = t2.getVal();
+            if (concurrentBinaryExpr.getOperator() == BinaryExpr.DOT) {
+                return new QdryRef(new QdryQ((leftVal), (rightVal)));
+            } else {
+                Long leftInt = ((QdryInt)(leftVal)).getInt();
+                Long rightInt = ((QdryInt)(rightVal)).getInt();
+                switch (concurrentBinaryExpr.getOperator()) {
+                    case BinaryExpr.PLUS: return new QdryInt(leftInt + rightInt);
+                    case BinaryExpr.MINUS: return new QdryInt(leftInt - rightInt);
+                    case BinaryExpr.TIMES: return new QdryInt(leftInt * rightInt);
+                    
+                    default: throw new RuntimeException("Unhandled Binary operator");
+                }
+            }
         } else {
             throw new RuntimeException("Unhandled Expr type");
         }

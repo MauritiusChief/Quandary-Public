@@ -25,7 +25,7 @@ public class QdryQ {
             return "nil";
         }
         if (left == QdryNil.getInstance()) {
-            return "nil ." + right.toString();
+            return "nil . " + right.toString();
         }
         if (right == QdryNil.getInstance()) {
             return left.toString() + " . nil";
