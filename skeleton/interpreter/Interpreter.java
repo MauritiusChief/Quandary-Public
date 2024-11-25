@@ -365,7 +365,7 @@ public class Interpreter {
                 return new QdryInt(0);
             case "setRight":
                 ref = (QdryRef)actual.get(0);
-                ref.qrdyQ.left = (actual.get(1));
+                ref.qrdyQ.right = (actual.get(1));
                 return new QdryInt(1);
             case "setLeft":
                 ref = (QdryRef)actual.get(0);

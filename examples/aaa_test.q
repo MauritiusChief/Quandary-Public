@@ -8,6 +8,8 @@ mutable int doRightInc(Ref counters, int myThread) {
 
 mutable Q main(int arg) {
     mutable Ref counters = 1 . 2;
-    int dummy = [ doLeftInc(counters, 0) + doRightInc(counters, 1) ];
+    /* setLeft(counters, 3); */
+    setRight(counters, 5);
+    int dummy = right(counters);
     return dummy;
 }
