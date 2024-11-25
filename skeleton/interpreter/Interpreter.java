@@ -2,12 +2,15 @@ package interpreter;
 
 import java.io.*;
 import java.util.Random;
+import java.util.TreeMap;
 
 import parser.ParserWrapper;
 import ast.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class Interpreter {
@@ -319,6 +322,62 @@ public class Interpreter {
             throw new RuntimeException("Unhandled Stmt type");
         }
     }
+
+    public QdryVal evaluateCallExpr(CallExpr callExpr, Map<String, QdryVal> variablesMap) {
+        List<Object> actual = new LinkedList<>();
+        for (Expr e : callExpr.getArguments()) {
+            actual.add(evaluateExpr(e, variablesMap));
+        }
+        ExprList exprList = callExpr.getExprList();
+        if (exprList == null) {
+            throw new IllegalStateException("exprList is null in CallExpr");
+        }
+        // if (exprList != null) {
+        //     NeExprList neExprList = exprList.getNeExprList();
+        //     // if (neExprList == null) {
+        //     //     throw new IllegalStateException("neExprList is null in CallExpr");
+        //     // }
+        //     args.add(neExprList.getExpr());
+        //     while (neExprList.getNeExprList() != null) {
+        //         neExprList = neExprList.getNeExprList();
+        //         args.add(neExprList.getExpr());
+        //     }
+        // }
+        Object value = evaluateExpr((callExpr).getExprList().getNeExprList().getExpr(), variablesMap);
+        if (value == null) {
+            throw new IllegalStateException("value is null in CallExpr");
+        }
+        switch ((callExpr.getName())) {
+            case "randomInt":
+                Long randomInt = (long)random.nextInt((int)(actual.get(0)));
+                return randomInt;
+            case "right":
+                return ((SExpression) actual.get(0)).right();
+            case "left":
+                return ((SExpression) actual.get(0)).left();
+            case "setRight":
+                ((SExpression) actual.get(0)).setRight(actual.get(1));
+                return 1L;
+            case "setLeft":
+                ((SExpression) actual.get(0)).setLeft(actual.get(1));
+                return 1L;
+            case "isAtom":
+                if (actual.get(0) == SExpression.NIL || actual.get(0) instanceof Long) return 1L;
+                return 0L;
+            case "isNil":
+                if (actual.get(0) == SExpression.NIL) return 1L;
+                return 0L;
+            default: 
+                FuncDef method = this.methods.get(callExpr.getName());
+                List<String> formalParamsNames = method.getParamNames();
+                Map<String, Object> callContexMap = new TreeMap<>();
+                for (int i=0; i<actual.size(); i++) {
+                    callContexMap.put(formalParamsNames.get(i), actual.get(i));
+                }
+                return evaluateStmtList(method.getStmtList(), callContexMap);
+        }
+    }
+
 
     public QdryVal evaluateExpr(Expr expr, Map<String, QdryVal> variablesMap) {
         // System.out.println(expr.toString())
