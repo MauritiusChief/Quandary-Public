@@ -2,26 +2,18 @@ package ast;
 
 public class CallStmt extends Stmt
 {
-    final String ident;
-    final ExprList exprList;
+    final CallExpr call;
     
-    public  CallStmt(String ident, ExprList exprList, Location loc){
+    public  CallStmt(IdentExpr id, ExprList exprList, Location loc){
         super(loc);
-        this.ident = ident;
-        this.exprList = exprList;
+        this.call = new CallExpr(id, exprList, loc);
     }
-    public String getIdentStr() {
-        return ident;
-    }
-    public ExprList getExprList() {
-        return exprList;
+    public CallExpr getCall() {
+        return call;
     }
     @Override
     public String toString(){
-        if (exprList == null){
-            return ident + "()";
-        }
-        return ident + "(" + exprList.toString() + ")";
+        return call.toString();
     }
     
 }

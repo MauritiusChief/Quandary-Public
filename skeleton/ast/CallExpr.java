@@ -1,27 +1,46 @@
 package ast;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class CallExpr extends Expr
 {
     final IdentExpr id;
-    final ExprList exprList;
+    // final String name;
+    final ExprList args;
     
     public  CallExpr(IdentExpr id, ExprList exprList, Location loc){
+    // public  CallExpr(String name, ExprList exprList, Location loc){
         super(loc);
         this.id = id;
-        this.exprList = exprList;
+        this.args = exprList;
     }
+
+    public List<Expr> getArguments() {
+        List<Expr> result;
+        if (this.args == null) {
+            result = new LinkedList<>();
+        } else {
+            result = args.getNeExprList().getArguments();
+        }
+        return result;
+    }
+
     public IdentExpr getIdent(){
         return id;
     }
+    // public String getName(){
+    //     return this.name;
+    // }
     public ExprList getExprList(){
-        return exprList;
+        return args;
     }
     @Override
     public String toString(){
-        if (exprList == null){
-            return id.toString() + "()";
+        if (args == null){
+            return id + "()";
         }
-        return id.toString() + "(" + exprList.toString() + ")";
+        return id + "(" + args.toString() + ")";
     }
     
 }

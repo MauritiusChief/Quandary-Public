@@ -1,33 +1,44 @@
 package ast;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class NeExprList extends ASTNode {
 
-    final Expr expr;
-    final NeExprList neExprList;
+    final Expr arg;
+    final NeExprList restNeExprList;
 
     public NeExprList(Expr expr, NeExprList neExprList, Location loc) {
         super(loc);
-        this.neExprList = neExprList;
-        this.expr = expr;
+        this.restNeExprList = neExprList;
+        this.arg = expr;
     }
-    public NeExprList(Expr expr, Location loc){
-        super(loc);
-        this.neExprList = null;
-        this.expr = expr;
+
+    public List<Expr> getArguments() {
+        List<Expr> args = new LinkedList<>();
+        if (restNeExprList == null)  {
+            // the right most parameter
+            args = new LinkedList<>();
+            args.add(arg);
+        } else {
+            args = restNeExprList.getArguments();
+            args.add(0, arg);
+        }
+        return args;
     }
 
     public NeExprList getNeExprList() {
-        return neExprList;
+        return restNeExprList;
     }
     public Expr getExpr() {
-        return expr;
+        return arg;
     }
 
     @Override
     public String toString() {
-        if (neExprList == null){
-            return expr.toString();
+        if (restNeExprList == null){
+            return arg.toString();
         }
-        return neExprList.toString();
+        return restNeExprList.toString();
     }
 }

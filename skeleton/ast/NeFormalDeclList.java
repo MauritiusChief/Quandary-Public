@@ -1,5 +1,8 @@
 package ast;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class NeFormalDeclList extends ASTNode {
 
     final VarDecl varDecl;
@@ -12,6 +15,18 @@ public class NeFormalDeclList extends ASTNode {
         this.varDecl = varDecl;
     }
 
+    public List<String> getNames() {
+        List<String> names = new LinkedList<>();
+        if (neFormalDeclList == null)  {
+            // the right most parameter
+            names = new LinkedList<>();
+            names.add(varDecl.getIdent().getIdentStr());
+        } else {
+            names = neFormalDeclList.getNames();
+            names.add(0, varDecl.getIdent().getIdentStr());
+        }
+        return names;
+    }
 
     public NeFormalDeclList getNeFormalDeclList() {
         return neFormalDeclList;

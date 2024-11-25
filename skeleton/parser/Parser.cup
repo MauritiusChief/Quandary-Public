@@ -121,7 +121,7 @@ stmt ::= varDecl:v EQUAL expr:e SEMICOL
       | LBRACE stmtList:sl RBRACE
          {: RESULT = new StmtBlock(sl, loc(slleft, slright)); :}
       | IDENT:s LPAREN exprList:el RPAREN SEMICOL
-         {: RESULT = new CallStmt(s, el, loc(sleft, sright)); :}
+         {: RESULT = new CallStmt(new IdentExpr(s,loc(sleft,sright)),el,loc(sleft,sright)); :}
       | IDENT:s EQUAL expr:e SEMICOL
          {: RESULT = new AssignStmt(s, e, loc(sleft, sright)); :}
       ;
@@ -157,7 +157,7 @@ exprList ::= neExprList:nel
 neExprList ::= expr:e COMMA neExprList:nel
                {: RESULT = new NeExprList(e, nel, loc(eleft,eright)); :}
             |  expr:e
-               {: RESULT = new NeExprList(e, loc(eleft,eright)); :}
+               {: RESULT = new NeExprList(e, null, loc(eleft,eright)); :}
             ;
 
 expr ::= INTCONST:c
