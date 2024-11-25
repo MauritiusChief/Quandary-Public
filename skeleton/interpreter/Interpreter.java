@@ -157,25 +157,26 @@ public class Interpreter {
     }
 
     QdryVal evaluateStmtList(StmtList stmtList, Map<String, QdryVal> variablesMap){
-        QdryVal stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
-        if (stmt == null) {
-            throw new NullPointerException("evaluateStmt returned null");
-        }
+        Stmt stmt = stmtList.getStmt();
+        System.out.println("Statement: "+stmt);
+        QdryVal value = evaluateStmt(stmt, variablesMap);
+        // if (value == null) {
+        //     throw new NullPointerException("evaluateStmt returned null");
+        // }
         // if (returnFlag[0]) {
         if (returnFlag == true) {
-            return stmt;
+            return value;
         }
         while (stmtList.getStmtList() != null)
         {
             stmtList = stmtList.getStmtList();
-            stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
+            value = evaluateStmt(stmt, variablesMap);
 
             if(returnFlag == true){
-            // if(returnFlag[0]){
                 break;
             }
         }
-        return stmt;
+        return value;
     }
 
     void evaluateFormalDeclList(FormalDeclList formalDeclList, ArrayList<QdryVal> args, Map<String, QdryVal> variablesMap){
@@ -290,7 +291,7 @@ public class Interpreter {
             QdryVal value = evaluateExpr(returnStmt.getExpr(),variablesMap);
             returnFlag = true;
             // returnFlag[0] = true;
-            // System.out.println(value);
+            // System.out.println(returnStmt);
             return value;
         } else if (stmt instanceof StmtBlock) {
             StmtBlock stmtBlock = (StmtBlock)stmt;
@@ -307,36 +308,44 @@ public class Interpreter {
     }
 
     public QdryVal evaluateCallExpr(CallExpr callExpr, Map<String, QdryVal> variablesMap) {
+        System.out.println(callExpr);
+        System.out.println(callExpr.getIdent().getIdentStr());
         List<QdryVal> actual = new LinkedList<>();
         for (Expr e : callExpr.getArguments()) {
             actual.add(evaluateExpr(e, variablesMap));
         }
+        System.out.println(actual);
         ExprList exprList = callExpr.getExprList();
         if (exprList == null) {
             throw new IllegalStateException("exprList is null in CallExpr");
         }
-        // if (exprList != null) {
-        //     NeExprList neExprList = exprList.getNeExprList();
-        //     // if (neExprList == null) {
-        //     //     throw new IllegalStateException("neExprList is null in CallExpr");
-        //     // }
-        //     args.add(neExprList.getExpr());
-        //     while (neExprList.getNeExprList() != null) {
-        //         neExprList = neExprList.getNeExprList();
-        //         args.add(neExprList.getExpr());
-        //     }
-        // }
-        Object value = evaluateExpr((callExpr).getExprList().getNeExprList().getExpr(), variablesMap);
-        QdryRef ref;
-        if (value == null) {
-            throw new IllegalStateException("value is null in CallExpr");
+        NeExprList neExprList = null;
+        if (exprList != null) {
+            neExprList = exprList.getNeExprList();
+            if (neExprList == null) {
+                throw new IllegalStateException("neExprList is null in CallExpr");
+            }
+            // args.add(neExprList.getExpr());
+            // while (neExprList.getNeExprList() != null) {
+            //     neExprList = neExprList.getNeExprList();
+            //     args.add(neExprList.getExpr());
+            // }
         }
+        QdryVal value = actual.get(0);
+        System.out.println("value in call expr: "+value);
+        QdryRef ref;
+        // if (value == null) {
+        //     throw new IllegalStateException("value is null in CallExpr");
+        // }
         switch ((callExpr.getIdent().getIdentStr())) {
             case "randomInt":
                 Random random = new Random();
                 QdryInt randomInt = new QdryInt((long)random.nextInt((int)((QdryInt)(actual.get(0))).getInt()));
                 return randomInt;
             case "isNil":
+                if (value == null) {
+                    throw new IllegalStateException("value is null in isNil");
+                }
                 // System.out.println(" ((QdryRef)value).getRef() == QdryNil.getInstance(): "+ (((QdryRef)value).getRef() == QdryNil.getInstance()));
                 if (value instanceof QdryRef && ((QdryRef)value).getRef() == QdryNil.getInstance()) {
                     return new QdryInt(1);
@@ -370,6 +379,14 @@ public class Interpreter {
             case "setLeft":
                 ref = (QdryRef)actual.get(0);
                 ref.qrdyQ.left = (actual.get(1));
+                return new QdryInt(1);
+            case "acq":
+                while (!((QdryRef)(actual.get(0))).qrdyQ.lock()) {
+                    // spin lock
+                }
+                return new QdryInt(1);
+            case "rel":
+                ((QdryRef)(actual.get(0))).qrdyQ.unlock();
                 return new QdryInt(1);
             default: 
                 FuncDef funcDef = functionMapping.get((callExpr).getIdent().getIdentStr());

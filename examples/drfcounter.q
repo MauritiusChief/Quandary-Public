@@ -1,7 +1,7 @@
 
 mutable int doLeftInc(Ref counters) {
     mutable int i = 0;
-    while (i < 10000) {
+    while (i < 10) {
         acq(counters);
         int value = (int)left(counters);
         rel(counters);
