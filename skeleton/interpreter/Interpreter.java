@@ -155,9 +155,9 @@ public class Interpreter {
 
     QdryVal evaluateStmtList(StmtList stmtList, Map<String, QdryVal> variablesMap){
         QdryVal stmt = evaluateStmt(stmtList.getStmt(), variablesMap);
-        // if (stmt == null) {
-        //     throw new NullPointerException("evaluateStmt returned null");
-        // }
+        if (stmt == null) {
+            throw new NullPointerException("evaluateStmt returned null");
+        }
         // if (returnFlag[0]) {
         if (returnFlag == true) {
             return stmt;
@@ -304,7 +304,8 @@ public class Interpreter {
             String stmtIdent = ((CallStmt)stmt).getIdentStr();
             QdryRef ref = (QdryRef)evaluateExpr(((CallStmt)stmt).getExprList().getNeExprList().getExpr(), variablesMap);
             QdryVal value = (QdryVal)evaluateExpr(((CallStmt)stmt).getExprList().getNeExprList().getNeExprList().getExpr(), variablesMap);
-            // System.out.println("Executing setLeft/setRight with ref: " + ref + " and value: " + value);
+            value = (value != null) ? value : QdryNil.getInstance();
+            System.out.println("Executing with ref: " + ref + " and value: " + value);
             switch (stmtIdent) {
                 case "setLeft": 
                     ref.qrdyQ.left = value;

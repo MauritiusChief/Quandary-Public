@@ -5,9 +5,10 @@ import java.util.Map;
 import interpreter.Interpreter;
 
 public class MyThread extends Thread{
-    final Expr expr;
-    QdryVal val;
-    final Map<String, QdryVal> map;
+    private final Expr expr;
+    private QdryVal val;
+    private final Map<String, QdryVal> map;
+
     public MyThread(Expr expr, Map<String, QdryVal> map) {
         this.expr = expr;
         this.map = map;
@@ -15,10 +16,15 @@ public class MyThread extends Thread{
     @Override
     public void run() {
         Interpreter interpreter = Interpreter.getInterpreter();
-        val = interpreter.evaluateExpr(expr, map);
+        QdryVal result = interpreter.evaluateExpr(expr, map);
+        setVal(result);
     }
 
-    public QdryVal getVal() {
+     public synchronized QdryVal getVal() {
         return val;
+    }
+
+    private synchronized void setVal(QdryVal val) {
+        this.val = val;
     }
 }
