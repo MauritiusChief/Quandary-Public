@@ -415,7 +415,6 @@ public class Interpreter {
             for (Expr e : args) {
                 argsVal.add(evaluateExpr(e, variablesMap));
             }
-            // returnFlag[0] = false;
             returnFlag = false;
             QdryVal result = evaluateFuncDef(funcDef, argsVal, tempMap);
             returnFlag = false;
